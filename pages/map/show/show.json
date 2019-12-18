@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+		"tab": "../../../components/tab/tab"
+  },
+  "navigationBarTitleText": "地图显示"
+}

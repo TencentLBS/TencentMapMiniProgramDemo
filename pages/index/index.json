@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+		"mp-dialog": "../../components/dialog/dialog",
+		"copy-dialog": "../../components/copy-dialog/copy-dialog"
+	},
+  "navigationBarTitleText": "腾讯位置服务示例中心"
+}

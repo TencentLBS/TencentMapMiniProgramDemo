@@ -1,0 +1,16 @@
+/* components/copy-dialog/copy-dialog.wxss */
+.link {
+	color: #3875FF;
+	font-weight: 500;
+}
+.dialog-intro {
+	color: #222;
+}
+.link-dialog .cancel-btn {
+	color: #222222;
+	font-weight: 500;
+}
+.link-dialog .confirm-btn {
+	color: #3875FF;
+	font-weight: 500;
+}

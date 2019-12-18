@@ -1,0 +1,59 @@
+<!--pages/plugin/location-picker/location.wxml-->
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce">腾讯位置服务地图选点插件 可以让用户快速、准确地选择并确认自己的当前位置，并将相关位置信息回传给开发者。同时我们还提供搜索、关键词分类、POI主子点等辅助功能，让选点更轻松！</view>
+	</view>
+	<view class="feature-container">
+		<view class="feature-content border-bottom border-top">
+			<text class="feature-label">发起位置</text>
+			<view class="feature-txt" bindtap="onChooseLocation">
+				<text wx:if="{{!location}}">获取选点</text>
+				<text class="active" wx:else>{{location.name}}</text>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content">
+			<text class="feature-label">关键词</text>
+			<view bindtap="onWatchLink" class="feature-txt link">
+				查看 POI 分类关键词
+			</view>
+		</view>
+		<view class="category-input-content border-bottom">
+			<view></view>
+			<view class="feature-txt">
+				<input
+					value="{{category}}"
+					type="text"
+					class="category-input"
+					placeholder="英文逗号区分关键词，最多支持 3 个"
+					bindinput="onInputCategory"
+				>
+				</input>
+			</view>
+		</view>
+		<view class="feature-content" bindtap="onTriggerActionsheet">
+			<text class="feature-label">个性地图</text>
+			<view class="feature-txt">
+				<image wx:if="{{customStyles[keyIndex].icon}}" class="custom-icon" src="{{customStyles[keyIndex].icon}}"></image>{{customStyles[keyIndex].text}}<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+	</view>
+  <view class="primary-btn mt30" bindtap="onWatchDemo">
+    查看示例
+	</view>
+	<view class="doc-btn mt20" bindtap="onWatchDoc">
+		查看接入文档
+	</view>
+	<mp-actionsheet
+		bindactiontap="onSelectCustom"
+		ext-class="custom-actionsheet"
+		show="{{showCustomActionsheet}}"
+		actions="{{customStyles}}">
+	</mp-actionsheet>
+	<copy-dialog
+		show="{{dialogShow}}"
+		link="{{link}}"
+		bindclose="onDialogClose">
+	</copy-dialog>
+</view>
+

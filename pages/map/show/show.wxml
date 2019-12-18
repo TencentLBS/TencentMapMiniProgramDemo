@@ -1,0 +1,31 @@
+<!--pages/show-map/show-map.wxml-->
+<view class="show-map-container">
+  <!-- 导航栏组件 -->
+  <tab tabList="{{tabList}}" bind:clickTab="clickTab"/>
+  <!-- 地图展示部分 -->
+  <view class="map-container">
+    <view class="introduce plr20">此示例展示地图显示效果，包含基础地图、室内地图、海外地图、卫星地图产品，同时提供 3D 楼快、实时路况功能。</view>
+    <view class="map-content pl20 {{tabList[0].show ? 'map-content-show' : '' }}">
+			<view class="pr20">
+				<map class="map" latitude="40.040415" longitude="116.273511" scale="17" enable-3D="{{is3D}}" enable-traffic="{{isRealTraffic}}"></map>
+			</view>
+      <view class="feature-content border-bottom">
+        <text class="feature-label">3D 楼块</text>
+        <switch color="#3875FF" checked="{{is3D}}" bindchange="onChange3D"></switch>
+      </view>
+      <view class="feature-content">
+        <text class="feature-label">实时路况</text>
+        <switch color="#3875FF" checked="{{isRealTraffic}}" bindchange="onChangeTraffic"></switch>
+      </view>
+    </view>
+    <view class="map-content plr20 map-padding {{tabList[1].show ? 'map-content-show' : '' }}">
+      <map class="indoor-map" latitude="39.924361" longitude="116.518557" scale="16" enable-3D="{{true}}" enable-indoor="{{true}}" enable-indoor-level-pick="{{true}}" subkey="{{key}}"></map>
+    </view>
+    <view class="map-content plr20 map-padding {{tabList[2].show ? 'map-content-show' : '' }}">
+      <map class="map" latitude="48.85297" longitude="2.34995" scale="15"></map>
+    </view>
+    <view class="map-content plr20 map-padding {{tabList[3].show ? 'map-content-show' : '' }}">
+      <map class="map" latitude="40.040415" longitude="116.273511" scale="15" enable-satellite></map>
+    </view>
+  </view>
+</view>

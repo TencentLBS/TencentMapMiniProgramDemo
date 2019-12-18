@@ -1,0 +1,34 @@
+/* pages/plugin/document/document.wxss */
+.document {
+	padding: 30px 20px;
+	background: #F8F8F7;
+}
+.page-h {
+	margin-bottom: 10px;
+	line-height: 21px;
+	font-size: 14px;
+	color: #222;
+	font-weight:500;
+}
+.page-p {
+	margin-bottom: 20px;
+	font-size:12px;
+	font-weight:400;
+	color:rgba(34,34,34,1);
+	line-height:21px;
+}
+.plugin-doc-link {
+	float: right;
+	font-size: 12px;
+	font-weight:500;
+	color:rgba(56,117,255,1);
+	line-height:21px;
+}
+.page-code {
+	display: block;
+	margin-bottom: 20px;
+	font-size:12px;
+	font-weight:400;
+	color:rgba(34,34,34,0.5);
+	line-height:21px;
+}

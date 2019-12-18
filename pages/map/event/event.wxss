@@ -1,0 +1,23 @@
+/* pages/map/event/event.wxss */
+.map-event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100%;
+}
+.map-event-content {
+  background: #FFF;
+  padding: 20px 0 0;
+  margin-top: 10px;
+}
+.map {
+  width:100%;
+  height:235px;
+  position:relative;
+}
+.feature-switch {
+  line-height: 51px;
+}

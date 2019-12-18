@@ -1,0 +1,55 @@
+/* pages/map-view/map-view.wxss */
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100%;
+
+}
+.map-view-content {
+  background: #FFF;
+  padding:20px 0 0;
+  margin-top: 10px;
+}
+.control-btn {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  z-index: 99;
+  background: #FFF;
+  line-height: 35px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 4px;
+  right: 10px;
+}
+.control-btn-increase {
+  top:73px;
+}
+.control-btn-decrease {
+  bottom: 72px;
+}
+.map {
+  width:100%;
+  height:235px;
+  position: relative;
+}
+.active {
+	color: #222;
+	font-weight: 500;
+}
+.reset-btn {
+  text-align: center;
+  line-height: 46px;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 30px;
+  background: #3875FF;
+  height: 46px;
+  width: 198px;
+}

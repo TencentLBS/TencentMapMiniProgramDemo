@@ -1,0 +1,45 @@
+<!--pages/map-view/map-view.wxml-->
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">此示例展示地图视野控制能力，包含缩放、平移、旋转、俯视等能力。</view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+				longitude="{{location.longitude}}"
+				scale="{{scale}}"
+				setting="{{setting}}"
+				enable-overlooking="{{isOverLooking}}"
+				enable-3D="{{is3D}}"
+			>
+				<cover-image src="{{imgs.plus}}" class="control-btn control-btn-increase" bindtap="onIncreaseScale"></cover-image>
+				<cover-image src="{{imgs.minus}}" class="control-btn control-btn-decrease" bindtap="onDecreaseScale"></cover-image>
+      </map>
+    </view>
+    <view class="feature-container pl20">
+      <view class="feature-content border-bottom">
+        <text class="feature-label">视野缩放</text>
+        <text class="feature-txt">通过按钮、放大缩小手势缩放视野</text>
+      </view>
+      <view class="feature-content border-bottom">
+        <text class="feature-label">视野旋转</text>
+        <text class="feature-txt">通过向左、向右旋转手势旋转视野</text>
+      </view>
+      <view class="feature-content border-bottom">
+        <text class="feature-label">俯仰效果</text>
+        <switch color="#3875FF" checked="{{isOverLooking}}" bindchange="onChangeOverLooking"></switch>
+      </view>
+      <view class="feature-content">
+        <text class="feature-label">动画平移</text>
+        <view class="feature-txt">
+          <view class="feature-txt-item {{isGuGong ? 'active' : ''}}" data-id="gugong" bindtap="onChangeView">平移至故宫博物院</view>
+          <view class="feature-txt-item {{isGuGong ? '' : 'active'}}" data-id="yiheyuan" bindtap="onChangeView">平移至颐和园</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="primary-btn mt30" bindtap="onReset">
+    重置
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+		"tab": "../../../components/tab/tab",
+		"mp-actionsheet": "../../../components/actionsheet/actionsheet"
+  },
+  "navigationBarTitleText": "覆盖物"
+}

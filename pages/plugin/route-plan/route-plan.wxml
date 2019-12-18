@@ -1,0 +1,63 @@
+<!--pages/plugin/route-plan.wxml-->
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce">腾讯位置服务路线规划插件提供路线规划等功能，根据起终点，多种出行方式智能规划最佳出行路线及详情。开发者可以将路线规划插件嵌入到自建小程序的页面里，实现路线规划功能。</view>
+	</view>
+	<view class="feature-container">
+		<view class="feature-content border-bottom border-top">
+			<text class="feature-label">起点位置</text>
+			<view class="feature-txt" bindtap="onChooseStartPoint">
+				<text wx:if="{{!startPoint}}">获取选点</text>
+				<text class="active" wx:else>{{startPoint.name}}</text>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom">
+			<text class="feature-label">终点位置</text>
+			<view class="feature-txt" bindtap="onChooseEndPoint">
+				<text wx:if="{{!endPoint}}">获取选点</text>
+				<text class="active" wx:else>{{endPoint.name}}</text>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom">
+			<text class="feature-label">出行方式</text>
+			<view class="feature-txt">
+				<view
+					bindtap="onSelectMode"
+					class="{{modeIndex === index ? 'active feature-txt-item' : 'feature-txt-item'}}"
+					data-index="{{index}}"
+					wx:for="{{modes}}">
+					{{item.text}}
+				</view>
+			</view>
+		</view>
+		<view class="feature-content border-bottom">
+			<text class="feature-label">显示导航</text>
+			<switch
+				class="feature-switch"
+				color="#3875FF"
+				checked="{{isNavigate}}"
+				bindchange="onChangeNavigate">
+			</switch>
+		</view>
+		<view class="feature-content" bindtap="onTriggerActionsheet">
+			<text class="feature-label">个性地图</text>
+			<view class="feature-txt">
+				<image wx:if="{{customStyles[keyIndex].icon}}" class="custom-icon" src="{{customStyles[keyIndex].icon}}"></image>{{customStyles[keyIndex].text}}<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+	</view>
+  <view class="primary-btn mt30" bindtap="onWatchDemo">
+    查看示例
+	</view>
+	<view class="doc-btn mt20" bindtap="onWatchDoc">
+		查看接入文档
+	</view>
+	<mp-actionsheet
+		bindactiontap="onSelectCustom"
+		ext-class="custom-actionsheet"
+		show="{{showCustomActionsheet}}"
+		actions="{{customStyles}}">
+	</mp-actionsheet>
+</view>

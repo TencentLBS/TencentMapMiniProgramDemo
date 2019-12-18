@@ -1,0 +1,5 @@
+<!--components/copy-dialog/copy-dialog.wxml-->
+<mp-dialog show="{{show}}" ext-class="link-dialog" bindbuttontap="onTapDialogButton" buttons="{{buttons}}">
+	<view class="dialog-intro">请复制以下链接至浏览器查看</view>
+	<view class="link">{{link}}</view>
+</mp-dialog>

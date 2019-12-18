@@ -1,0 +1,32 @@
+<!--pages/customized/customized.wxml-->
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce">个性化地图可以定制背景面、背景线、道路、POI 四大类 44 种地图元素，让开发者随心所欲的设计地图，在 JSAPI、SDK、微信小程序中使用，地图从此不再千篇一律。</view>
+	</view>
+	<view class="feature-container">
+		<view class="feature-content border-bottom border-top" data-type="moyuan" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.moyuan}}"></image>
+			<view class="feature-txt">
+				墨渊<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom" data-type="baiqian" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.baiqian}}"></image>
+			<view class="feature-txt">
+				白浅<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom" data-type="yulu" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.yulu}}"></image>
+			<view class="feature-txt">
+				玉露<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content" style="height: 56px" data-type="difuni" bindtap="onWatchMap">
+			<text class="feature-label active">自定义</text>
+			<view class="feature-txt">
+				蒂芙尼<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+	</view>
+</view>

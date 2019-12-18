@@ -1,0 +1,170 @@
+<!--pages/map/marker/marker.wxml-->
+<view class="show-map-container">
+	<!-- 导航栏组件 -->
+	<view>
+		<tab tabList="{{tabList}}" currentTab="{{tabIndex}}" bind:clickTab="onClickTab" />
+	</view>
+  <!-- 地图展示部分 -->
+  <view class="map-container">
+    <view class="map-content {{tabIndex === 0 ? 'map-content-show' : '' }}">
+			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
+				<view class="introduce">此示例展示地图标注点基本设置，显示标注名称、更改图标、旋转角度、设置透明度。</view>
+      	<map class="map" markers="{{markers}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+			</view>
+			<view class="form-panel">
+				<scroll-view scroll-y="true" style="height: 100%;">
+					<view class="feature-container pl20">
+						<view class="feature-content border-bottom">
+							<text class="feature-label">标注名称</text>
+							<view class="feature-txt">
+								<switch color="#3875FF" checked="{{markers[0].callout.display === 'ALWAYS'}}" bindchange="onChangeShowCallout"></switch>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">选择图标</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectMarkerImg" data-index="{{index}}" wx:for="{{markerImgs}}">
+									<image hidden="{{index === markerImgIndex}}" class="marker-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== markerImgIndex}}" class="marker-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content">
+							<text class="feature-label">旋转角度</text>
+							<view class="feature-txt" style="color: #222">
+								{{markers[0].rotate}}°
+							</view>
+						</view>
+						<view class="pr20 border-bottom">
+							<slider class="slider" value="{{markers[0].rotate}}" bindchange="onChangeMarkerRotate" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="360"/>
+							<view class="feature-content rotate-range">
+								<text>0°</text>
+								<text>360°</text>
+							</view>
+						</view>
+						<view class="feature-content">
+							<text class="feature-label">透明度</text>
+							<view class="feature-txt" style="color: #222">
+								{{markers[0].alpha * 100}}%
+							</view>
+						</view>
+						<view class="pr20">
+							<slider class="slider" value="{{markers[0].alpha}}" step="0.01" bindchange="onChangeMarkerAlpha" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="1"/>
+							<view class="feature-content rotate-range">
+								<text>0%</text>
+								<text>100%</text>
+							</view>
+						</view>
+					</view>
+					<view class="btn-container">
+						<view class="primary-btn reset-btn" bindtap="onResetMarkerConfig">重置</view>
+					</view>
+        </scroll-view>
+			</view>
+    </view>
+    <view class="map-content {{tabIndex === 1 ? 'map-content-show' : '' }}">
+			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
+				<view class="introduce">此示例展示标注点气泡窗口（callout）基本设置，包括文本、文本颜色、文字大小、边框圆角、边框宽度、边框颜色、背景色、文本边缘留白、文本对齐方式等。</view>
+      	<map class="map" markers="{{calloutMarkers}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+			</view>
+			<view class="form-panel">
+				<scroll-view scroll-y="true" style="height: 100%;">
+					<view class="feature-container pl20">
+						<view class="feature-content border-bottom">
+							<text class="feature-label">显示文本</text>
+							<view class="feature-txt">
+								<input
+									class="callout-input"
+									value="{{calloutMarkers[0].callout.content}}"
+									placeholder="不得超过 10 字"
+									bindinput="onInputChange"
+								/>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectColor">
+							<text class="feature-label">文本颜色</text>
+							<view class="feature-txt">
+								<text style="{{'color:' + (calloutMarkers[0].callout.color || '#222')}}">{{calloutMarkers[0].callout.color ? '文本颜色' : '默认颜色'}}</text><image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">文字大小</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectFontSize" data-index="{{index}}" wx:for="{{calloutFontSizes}}">
+									<text class="{{item.value === calloutMarkers[0].callout.fontSize ? 'fontsize-active' : ''}}" style="{{'font-size:' + item.value + 'px'}}">{{item.text}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">对齐方式</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectAlign" data-index="{{index}}" wx:for="{{calloutAligns}}">
+									<image hidden="{{index === calloutAlignIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== calloutAlignIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">边框圆角</text>
+							<switch class="feature-switch" color="#3875FF" checked="{{showRadius}}" bindchange="onChangeShowRadius"></switch>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">边框宽度</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectBorderWidth" data-index="{{index}}" wx:for="{{calloutBorderWidths}}">
+									<image hidden="{{index === calloutBorderWidthIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== calloutBorderWidthIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectBorderColor">
+							<text class="feature-label">边框颜色</text>
+							<view class="feature-txt">
+								<image wx:if="{{calloutBorderColors[calloutBorderColorIndex].icon}}" class="bordercolor-icon" src="{{calloutBorderColors[calloutBorderColorIndex].icon}}"></image><text wx:else style="color: #222">默认颜色</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectBgColor">
+							<text class="feature-label">背景颜色</text>
+							<view class="feature-txt">
+								<view class="{{'bg-icon ' + (calloutMarkers[0].callout.bgColor === '#ffffff' ? 'bg-icon-border' : '')}}" style="{{'background-color:' + (calloutMarkers[0].callout.bgColor)}}"></view>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content">
+							<text class="feature-label">文本留白</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectPadding" data-index="{{index}}" wx:for="{{calloutPaddings}}">
+									<image hidden="{{index === calloutPaddingIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== calloutPaddingIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="btn-container">
+						<view class="primary-btn reset-btn" bindtap="onResetCalloutConfig">重置</view>
+					</view>
+        </scroll-view>
+			</view>
+    </view>
+	</view>
+	<mp-actionsheet
+		bindactiontap="onSelectColor"
+		ext-class="color-actionsheet"
+		show="{{showColorActionsheet}}"
+		actions="{{calloutColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectBorderColor"
+		ext-class="bordercolor-actionsheet"
+		show="{{showBorderColorActionsheet}}"
+		actions="{{calloutBorderColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectBgColor"
+		ext-class="bgcolor-actionsheet"
+		show="{{showBgColorActionsheet}}"
+		actions="{{calloutBgColors}}">
+	</mp-actionsheet>
+</view>
+

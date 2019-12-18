@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"copy-dialog": "../../../components/copy-dialog/copy-dialog"
+	},
+	"navigationBarTitleText": "接入文档"
+}

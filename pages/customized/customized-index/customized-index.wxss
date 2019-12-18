@@ -1,0 +1,26 @@
+/* pages/customized/customized.wxss */
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100%;
+}
+.map-view-content {
+  background: #FFF;
+  padding:20px 20px 0;
+  margin-top: 10px;
+}
+.feature-container {
+	padding-left: 20px;
+	background: #fff;
+}
+.feature-content {
+	align-items: center;
+	height: 112px;
+}
+.custom-img {
+	width: 80px;
+	height: 80px;
+}

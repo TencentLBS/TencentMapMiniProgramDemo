@@ -1,0 +1,15 @@
+/* pages/customized/customized-map/customized-map.wxss */
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100%;
+}
+.custom-intro {
+	background: #fff;
+}
+.map {
+	flex: 1;
+}

@@ -1,0 +1,21 @@
+<!--pages/customized/customized-map/customized-map.wxml-->
+<view class="map-view-container">
+	<view class="custom-intro">
+		<view style='font-size: 14pt;margin:10px 20px;'>
+			个性化地图 - {{text}}效果
+			<text style="display: inline" wx:if="{{text === '蒂芙尼'}}">（通过在线样式编辑工具自定义实现）</text>
+		</view>
+		<view style='font-size: 10pt;margin:10px 20px;color:#888'>
+		注：样式加载前会显示普通底图，请稍作等候即可
+		</view>
+	</view>
+	<map
+		wx:if="{{mapShow}}"
+		class="map"
+		style="width: 100%;"
+		longitude="116.313972" latitude="39.980014"
+		scale='16'
+		subkey="{{key}}"
+		layer-style="1"
+	></map>
+</view>

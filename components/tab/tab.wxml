@@ -1,0 +1,13 @@
+<!--pages/components/tab/tab.wxml-->
+
+<view class='tab-container'>
+  <scroll-view class="tab" enable-flex scroll-x scroll-with-animation="true">
+    <block wx:for="{{tabList}}" wx:key="index">
+      <view class="tab-item" data-current="{{index}}" bindtap='onClickTab'>
+        <view class="item {{currentTab == index ? 'active' : ''}}">
+          {{item.name}}
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

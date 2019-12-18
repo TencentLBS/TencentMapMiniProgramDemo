@@ -1,0 +1,39 @@
+<!--pages/map/event/event.wxml-->
+<view class="map-event-container">
+  <view class="map-event-content">
+    <view class="introduce plr20">此示例展示地图触发事件回调效果，支持地图点击、标注点击、气泡点击、控件点击、地图渲染更新、视野变化、POI点击等回调。</view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+				longitude="{{location.longitude}}"
+				markers="{{markers}}"
+				scale="16"
+				bindregionchange="onChangeRegion"
+				bindtap="onTapMap"
+				bindpoitap="onTapPoi"
+				bindmarkertap="onTapMarker"
+			>
+      </map>
+    </view>
+    <view class="feature-container pl20">
+      <view class="feature-content  border-bottom">
+        <text class="feature-label">地图点击回调</text>
+        <text class="feature-txt">{{mapCallbackTxt}}</text>
+      </view>
+      <view class="feature-content  border-bottom">
+        <text class="feature-label">标注点击回调</text>
+        <text class="feature-txt">{{markerCallbackTxt}}</text>
+      </view>
+      <view class="feature-content border-bottom">
+        <text class="feature-label">POI点击回调</text>
+       <text class="feature-txt">{{poiCallbackTxt}}</text>
+      </view>
+      <view class="feature-content">
+        <text class="feature-label">视野变化回调</text>
+        <text class="feature-txt">{{regionCallbackTxt}}</text>
+      </view>
+    </view>
+  </view>
+</view>

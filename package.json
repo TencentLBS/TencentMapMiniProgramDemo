@@ -1,0 +1,19 @@
+{
+  "name": "miniprogram-demo-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "eslint": "eslint ./ --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^4.11.0",
+    "eslint-plugin-html": "^4.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+<!--主页-->
+<view class="page-main-container">
+	<view class="main-content">
+		<view class="header-container">
+			<view class="title-container">
+				<image class="title-img" src="{{CDN_PATH + '/logo@3x.png'}}"></image>
+			</view>
+			<text class="introduce">腾讯位置服务示例中心包含小程序下 Map 组件、微信小程序插件、个性化地图示例。通过高频功能、典型场景供开发者参考，降低开发成本，提升开发效率。         </text>
+		</view>
+		<view class="demo-center-container">
+			<view wx:for="{{menuList}}" wx:key="id">
+				<view id="{{item.id}}" class="list-content {{item.open ? 'list-content-show' : ''}}" bindtap="onListToggle">
+					<image class="list-img" src="{{item.img}}"></image>
+					<view class="list-border">
+						<text class="list-txt">{{item.name}}</text>
+						<image src="{{item.pages.length ? (item.open ? imgs.upArrow : imgs.downArrow) : imgs.rightArrow}}" class="list-icon" style="width:16px;height:16px;"></image>
+					</view>
+				</view>
+				<view class="list-item-content {{item.open ? 'list-item-content-show' : ''}}">
+					<view class="list-item {{item.open ? 'list-item-show' : ''}}">
+						<view class="list-item-cells" wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+							<navigator url="{{page.url}}" class="list-nav">
+								<text class="list-item-cells-txt">{{page.name}}</text>
+							</navigator>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="footer">
+		<text bindtap="watchCode">查看源代码</text>
+	</view>
+	<copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

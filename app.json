@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+		"pages/customized/customized-index/customized-index",
+		"pages/map/show/show",
+    "pages/map/view/view",
+    "pages/map/control/control",
+    "pages/map/event/event",
+    "pages/plugin/route-plan/route-plan",
+    "pages/map/marker/marker",
+    "pages/plugin/document/document",
+    "pages/plugin/subway/subway",
+    "pages/plugin/location-picker/location-picker",
+    "pages/customized/customized-map/customized-map",
+    "pages/map/overlay/overlay"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.5",
+      "provider": "wx50b5593e81dd937a"
+    },
+    "chooseLocation": {
+      "version": "1.0.2",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "subway": {
+      "version": "1.0.8",
+      "provider": "wx6aaf93c4435fa1c1"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

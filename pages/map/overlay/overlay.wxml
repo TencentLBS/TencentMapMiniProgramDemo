@@ -1,0 +1,189 @@
+<!--pages/map/overlay/overlay.wxml-->
+<view class="show-map-container">
+	<!-- 导航栏组件 -->
+	<view>
+		<tab tabList="{{tabList}}" currentTab="{{tabIndex}}" bind:clickTab="onClickTab" />
+	</view>
+  <!-- 地图展示部分 -->
+  <view class="map-container">
+    <view class="map-content {{tabIndex === 0 ? 'map-content-show' : '' }}">
+			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
+				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
+      	<map class="map" polyline="{{polyline}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+			</view>
+			<view class="form-panel">
+				<scroll-view scroll-y="true" style="height: 100%;">
+					<view class="feature-container pl20">
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectPolylineColor">
+							<text class="feature-label">线条颜色</text>
+							<view class="feature-txt">
+								<image class="bordercolor-icon" src="{{polylineColorMap[polyline[0].color]}}"></image>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">线条宽度</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectPolylineWidth" data-index="{{index}}" wx:for="{{widthImgs}}">
+									<image hidden="{{index === polylineWidthIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== polylineWidthIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">虚线</text>
+							<switch
+								class="feature-switch"
+								color="#3875FF"
+								checked="{{polyline[0].dottedLine}}"
+								bindchange="onChangeShowDotted">
+							</switch>
+						</view>
+						<!-- <view class="feature-content border-bottom">
+							<text class="feature-label">箭头图标</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectPolylineArrow" data-index="{{index}}" wx:for="{{arrowImgs}}">
+									<image hidden="{{index === polylineArrowIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== polylineArrowIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view> -->
+						<view class="feature-content" bindtap="ontriggerSelectPolylineBorderColor">
+							<text class="feature-label">线条描边颜色</text>
+							<view class="feature-txt">
+								<image wx:if="{{polyline[0].borderColor}}" class="bordercolor-icon" src="{{polylineBorderColorMap[polyline[0].borderColor]}}"></image><text wx:else style="color: #222">无</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+					</view>
+					<view class="btn-container">
+						<view class="primary-btn reset-btn" bindtap="onResetPolylineConfig">重置</view>
+					</view>
+        </scroll-view>
+			</view>
+    </view>
+    <view class="map-content {{tabIndex === 1 ? 'map-content-show' : '' }}">
+			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
+				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
+      	<map class="map" polygons="{{polygons}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+			</view>
+			<view class="form-panel">
+				<scroll-view scroll-y="true" style="height: 100%;">
+					<view class="feature-container pl20">
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectPolygonBgColor">
+							<text class="feature-label">填充颜色</text>
+							<view class="feature-txt">
+								<view wx:if="{{polygons[0].fillColor}}" class="{{'bg-icon ' + (polygons[0].fillColor === '#ffffff' ? 'bg-icon-border' : '')}}" style="{{'background-color:' + (polygons[0].fillColor)}}"></view><text wx:else style="color: #222">无</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectPolygonBorderColor">
+							<text class="feature-label">描边颜色</text>
+							<view class="feature-txt">
+								<image wx:if="{{polygons[0].strokeColor}}" class="bordercolor-icon" src="{{polygonColorMap[polygons[0].strokeColor]}}"></image><text wx:else style="color: #222">默认颜色</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content">
+							<text class="feature-label">描边宽度</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectPolygonWidth" data-index="{{index}}" wx:for="{{polygonWidthImgs}}">
+									<image hidden="{{index === polygonWidthIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== polygonWidthIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="btn-container">
+						<view class="primary-btn reset-btn" bindtap="onResetPolygonConfig">重置</view>
+					</view>
+        </scroll-view>
+			</view>
+		</view>
+		<view class="map-content {{tabIndex === 2 ? 'map-content-show' : '' }}">
+			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
+				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
+      	<map class="map" circles="{{circles}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+			</view>
+			<view class="form-panel">
+				<scroll-view scroll-y="true" style="height: 100%;">
+					<view class="feature-container pl20">
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectCircleBgColor">
+							<text class="feature-label">填充颜色</text>
+							<view class="feature-txt">
+								<view wx:if="{{circles[0].fillColor}}" class="{{'bg-icon ' + (circles[0].fillColor === '#ffffff' ? 'bg-icon-border' : '')}}" style="{{'background-color:' + (circles[0].fillColor)}}"></view><text wx:else style="color: #222">无</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" bindtap="ontriggerSelectCircleColor">
+							<text class="feature-label">描边颜色</text>
+							<view class="feature-txt">
+								<image wx:if="{{circles[0].color}}" class="bordercolor-icon" src="{{circleColorMap[circles[0].color]}}"></image><text wx:else style="color: #222">默认颜色</text>
+								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+							</view>
+						</view>
+						<view class="feature-content border-bottom">
+							<text class="feature-label">描边宽度</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectCircleWidth" data-index="{{index}}" wx:for="{{polygonWidthImgs}}">
+									<image hidden="{{index === circleWidthIndex}}" class="align-img" src="{{item.normal}}"></image>
+									<image hidden="{{index !== circleWidthIndex}}" class="align-img" src="{{item.active}}"></image>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content">
+							<text class="feature-label">圆形半径</text>
+							<view class="feature-txt">
+								<input
+									class="circle-input"
+									value="{{circles[0].radius}}"
+									placeholder="请填写半径（米）"
+									bindinput="onInputChange"
+								/>
+							</view>
+						</view>
+					</view>
+					<view class="btn-container">
+						<view class="primary-btn reset-btn" bindtap="onResetCircleConfig">重置</view>
+					</view>
+        </scroll-view>
+			</view>
+    </view>
+	</view>
+	<mp-actionsheet
+		bindactiontap="onSelectPolylineColor"
+		ext-class="color-actionsheet"
+		show="{{showPolylineColorActionsheet}}"
+		actions="{{polylineColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectPolylineBorderColor"
+		ext-class="bordercolor-actionsheet"
+		show="{{showPolylineBorderColorActionsheet}}"
+		actions="{{polylineBorderColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectPolygonBgColor"
+		ext-class="bgcolor-actionsheet"
+		show="{{showPolygonBgColorActionsheet}}"
+		actions="{{polygonBgColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectPolygonBorderColor"
+		ext-class="color-actionsheet"
+		show="{{showPolygonBorderColorActionsheet}}"
+		actions="{{polygonColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectCircleBgColor"
+		ext-class="bgcolor-actionsheet"
+		show="{{showCircleBgColorActionsheet}}"
+		actions="{{circleBgColors}}">
+	</mp-actionsheet>
+	<mp-actionsheet
+		bindactiontap="onSelectCircleColor"
+		ext-class="color-actionsheet"
+		show="{{showCircleColorActionsheet}}"
+		actions="{{circleColors}}">
+	</mp-actionsheet>
+</view>

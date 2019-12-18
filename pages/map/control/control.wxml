@@ -1,0 +1,33 @@
+<!--pages/map-control/map-control.wxml-->
+<view class="map-control-container">
+  <view class="map-control-content">
+    <view class="introduce plr20">此示例展示地图提供的控件产品，包含比例尺、指南针、定位控件。</view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+				longitude="{{location.longitude}}"
+				show-location="{{showPosition}}"
+				show-compass="{{isShowCompass}}"
+				show-scale="{{isShowScale}}"
+				scale="16"
+			>
+			</map>
+    </view>
+    <view class="feature-container pl20">
+      <view class="feature-content border-bottom">
+        <text class="feature-label">比例尺显示</text>
+        <switch color="#3875FF" checked="{{isShowScale}}" bindchange="onChangeShowScale"></switch>
+      </view>
+      <view class="feature-content border-bottom">
+        <text class="feature-label">指南针显示</text>
+        <switch color="#3875FF" checked="{{isShowCompass}}" bindchange="onChangeShowCompass"></switch>
+      </view>
+      <view class="feature-content">
+        <text class="feature-label">定位控件</text>
+        <switch class="feature-switch" color="#3875FF" checked="{{isShowPosition}}" bindchange="onChangeShowPosition"></switch>
+      </view>
+    </view>
+  </view>
+</view>
