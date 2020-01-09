@@ -6,3 +6,4 @@ export const YULU_KEY = 'your key';
 export const DIFUNI_KEY = 'your key';
 export const INDOOR_KEY = 'your key';
 export const REFERER = '腾讯位置服务示例中心小程序';
+export const WEBSERVICE_APPID = 'wxc1c68623b7bdea7b';

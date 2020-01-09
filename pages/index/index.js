@@ -57,6 +57,19 @@ Page({
 				url: '../customized/customized-index/customized-index',
 				img: `${CDN_PATH}/iconMap@3x.png`,
 				pages: []
+			},
+			{
+				id: 'webservice',
+				name: '接口能力',
+				open: false,
+				img: `${CDN_PATH}/iconPort@3x.png`,
+				pages: [{
+					name: '逆地址解析',
+					url: '../webservice/reverseGeocoder-form/reverseGeocoder-form'
+				},{
+					name: '地点搜索',
+					url: '../webservice/search-form/search-form'
+				}]
 			}
 		],
 		dialogShow: false,

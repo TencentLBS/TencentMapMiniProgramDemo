@@ -1,0 +1,72 @@
+/* pages/webservice/reverseGeocoder-result/reverseGeocoder-result.wxss */
+.search-container {
+  width: 100%;
+  overflow: hidden;
+}
+.map-content {
+  background: #FFF;
+  padding: 20px;
+}
+.map {
+  width:100%;
+  height:235px;
+  position:relative;
+}
+.result-container {
+  display: flex;
+  flex-flow: column;
+}
+.result-content {
+  margin-top: 10px;
+  background: #FFF;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  display: none;
+}
+.show-content {
+  height: auto;
+  z-index: 2;
+  display: block;
+  overflow: auto;
+}
+.p20 {
+  padding: 20px;
+}
+
+.poi-list .list-item {
+  height: 84px;
+  margin: 0 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.poi-list .item-title {
+  line-height: 24px;
+  width: 80%;
+  font-size: 17px;
+  color: #222222;
+  letter-spacing: 0;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.poi-list .item-info {
+  width: 80%;
+  line-height: 20px;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #444444;
+  letter-spacing: 0;
+}
+.poi-list .item-distance {
+  margin-right: 10px;
+}
+.noPois {
+  text-align: center;
+  font-size: 14px;
+  color: #222222;
+  padding-bottom: 20px;
+}

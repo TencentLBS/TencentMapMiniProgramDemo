@@ -60,7 +60,7 @@ Page({
 				});
 				const category = '生活服务,娱乐休闲';\n
 				wx.navigateTo({
-				&emsp;url: 'plugin://chooseLocation/index?key=' + key + \n'&referer=' + referer + '&location=' + location + \n'&category' + category });`,
+				&emsp;url: 'plugin://chooseLocation/index?key=' + key + \n'&referer=' + referer + '&location=' + location + \n'&category=' + category });`,
 				link: 'https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx76a9a06e5b4e693e'
 			},
 			subway: {

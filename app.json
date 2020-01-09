@@ -12,7 +12,12 @@
     "pages/plugin/subway/subway",
     "pages/plugin/location-picker/location-picker",
     "pages/customized/customized-map/customized-map",
-    "pages/map/overlay/overlay"
+		"pages/map/overlay/overlay",
+		"pages/webservice/search-form/search-form",
+    "pages/webservice/search-result/search-result",
+    "pages/webservice/reverseGeocoder-form/reverseGeocoder-form",
+    "pages/webservice/reverseGeocoder-result/reverseGeocoder-result",
+    "pages/webservice/policy-list/policy-list"
   ],
   "permission": {
     "scope.userLocation": {
@@ -43,5 +48,6 @@
     "weui": true
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+	"sitemapLocation": "sitemap.json",
+	"servicemarket": true
 }

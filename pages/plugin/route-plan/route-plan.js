@@ -81,7 +81,7 @@ Page({
 		let url = 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint +
 		'&mode=' + mode + '&navigation=' + navigation;
 		if (startPoint) {
-			url += '&startPoint' + startPoint;
+			url += '&startPoint=' + startPoint;
 		}
 		wx.navigateTo({
 			url

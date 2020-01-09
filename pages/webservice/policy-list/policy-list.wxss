@@ -1,0 +1,18 @@
+/* pages/webservice/policy-list/policy-list.wxss */
+.policy-container {
+	background: #FFF;
+  margin-top: 10px;
+}
+.policy-item {
+	padding: 10px 0;
+}
+.policy-title {
+	line-height: 1.5;
+	font-size: 16px;
+	color: #222;
+}
+.policy-subtitle {
+	line-height: 1.5;
+	font-size: 14px;
+	color: rgba(37, 37, 37, 0.5);
+}

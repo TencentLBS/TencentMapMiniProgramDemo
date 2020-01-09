@@ -1,0 +1,60 @@
+<!--pages/webservice/reverseGeocoder-result/reverseGeocoder-result.wxml-->
+<view class="reverseGeocoder-container">
+  <!-- 导航栏组件 -->
+  <tab tabList="{{tabList}}" bind:clickTab="clickTab" />
+  <view class="result-container">
+    <view class="result-content hidden {{tabList[0].show ? 'show-content' : '' }}">
+      <view class="feature-container pl20">
+        <view class="feature-content border-bottom" wx:if="{{addressInfo.recommend}}">
+          <text class="feature-label">推荐地址</text>
+          <text class="feature-txt">{{addressInfo.recommend}}</text>
+        </view>
+        <view class="feature-content  border-bottom" wx:if="{{addressInfo.address}}">
+          <text class="feature-label">常规地址</text>
+          <text class="feature-txt">{{addressInfo.address}}</text>
+        </view>
+        <view class="feature-content border-bottom" wx:if="{{addressInfo.adInfo}}">
+          <text class="feature-label">行政区划</text>
+          <text class="feature-txt">{{addressInfo.adInfo}}</text>
+        </view>
+        <view class="feature-content border-bottom" wx:if="{{addressInfo.adcode}}">
+          <text class="feature-label">行政区划代码</text>
+          <text class="feature-txt">{{addressInfo.adcode}}</text>
+        </view>
+        <view class="feature-content border-bottom" wx:if="{{addressInfo.businessArea}}">
+          <text class="feature-label">商圈</text>
+          <text class="feature-txt">{{addressInfo.businessArea}}</text>
+        </view>
+        <view class="feature-content border-bottom" wx:if="{{addressInfo.landmark}}">
+          <text class="feature-label">一级地标</text>
+          <text class="feature-txt">{{addressInfo.landmark}}</text>
+        </view>
+        <view class="feature-content" wx:if="{{addressInfo.crossroad}}">
+          <text class="feature-label">路口</text>
+          <text class="feature-txt">{{addressInfo.crossroad}}</text>
+        </view>
+      </view>
+      <view class="pois-container" wx:if="{{pois.length > 0}}">
+        <view class="pois-title">
+          周边地点
+        </view>
+        <scroll-view class="poi-list">
+          <view class="list-item" wx:for="{{pois}}" wx:key="{{index}}" data-index="{{index}}" data-poi="{{item}}">
+            <view class="item-title">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="item-info">
+              <text class="item-address">{{item.address}}</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="result-content p20 {{tabList[1].show ? 'show-content' : '' }}">
+      <text class="page-code" decode="true">{{requestJson}}</text>
+    </view>
+    <view class="result-content {{tabList[2].show ? 'show-content' : '' }}">
+    <rich-text nodes="{{resultJson}}"></rich-text>
+    </view>
+  </view>
+</view>

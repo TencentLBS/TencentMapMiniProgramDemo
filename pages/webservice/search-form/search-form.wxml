@@ -1,0 +1,112 @@
+<!--pages/webservice/search-form/search-form.wxml-->
+<view class="map-container">
+  <view class="map-content">
+    <view class="introduce plr20">基于腾讯位置服务千万级鲜活地点(POI)数据，提供结合搜索关键词的周边、城市范围、矩形范围（屏幕视野内）等多种地理位置搜索能力，同时提供分类筛选功能，满足不同场景的地点搜索需要。</view>
+    <view class="feature-container pl20">
+      <view class="feature-content border-top border-bottom">
+        <text class="feature-label">关键词</text>
+        <view class="feature-txt">
+					<input
+						class="keyword-input"
+						value="{{keyword}}"
+						placeholder="请输入关键词"
+						bindinput="onInputChange"
+					/>
+				</view>
+      </view>
+			<view class="feature-content border-bottom">
+        <text class="feature-label">搜索范围</text>
+        <view class="feature-txt">
+					<view
+						bindtap="onSelectMode"
+						class="{{modeIndex === index ? 'active feature-txt-item' : 'feature-txt-item'}}"
+						data-index="{{index}}"
+						wx:key="index"
+						wx:for="{{modes}}">
+						{{item.text}}
+					</view>
+				</view>
+			</view>
+			<view hidden="{{modeIndex !== 0}}">
+				<view class="feature-content">
+					<text class="feature-label">搜索城市（名称）</text>
+					<view class="feature-txt">
+						<input
+							class="keyword-input"
+							value="{{cityName}}"
+							placeholder="请输入城市名称"
+							bindinput="onInputCityChange"
+						/>
+					</view>
+				</view>
+			</view>
+			<view hidden="{{modeIndex !== 1}}">
+				<view class="pr20">
+					<map
+						class="map"
+						id="map"
+						latitude="{{location.latitude}}"
+						longitude="{{location.longitude}}"
+						scale="16"
+						bindregionchange="onChangeRegion"
+					>
+						<cover-image
+							class="locationpicker-ic-marker {{animation ? 'locationpicker-animation' : ''}}"
+							src="./img/Big_Marker@2x.png"
+							bindanimationend="onMarkerAnimationend"
+						/>
+					</map>
+					<view class="feature-content border-bottom" style="padding-right: 0">
+						<text class="feature-label">拖动地图选择坐标</text>
+						<text class="feature-txt">{{centerPoint.latitude + ',' + centerPoint.longitude}}</text>
+					</view>
+					<view class="feature-content">
+						<text class="feature-label">搜索半径（米）</text>
+						<view class="feature-txt">
+							<input
+								class="keyword-input"
+								value="{{radius}}"
+								type="number"
+								placeholder="请输入搜索半径"
+								bindinput="onInputRadiusChange"
+							/>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view hidden="{{modeIndex !== 2}}">
+				<view class="pr20">
+					<map
+						class="map"
+						id="rectangle-map"
+						latitude="{{location.latitude}}"
+						longitude="{{location.longitude}}"
+						scale="16"
+						bindregionchange="onChangeMapRegion"
+					>
+					</map>
+					<view hidden="{{n}}" class="feature-content border-bottom" style="padding-right: 0">
+						<text class="feature-label"></text>
+						<text class="feature-txt">拖动或缩放调整视野范围</text>
+					</view>
+					<view class="feature-content border-bottom" style="padding-right: 0">
+						<text class="feature-label">西南角经纬度</text>
+						<text class="feature-txt">{{southwest.latitude + ',' + southwest.longitude}}</text>
+					</view>
+					<view class="feature-content border-bottom" style="padding-right: 0">
+						<text class="feature-label">东北角经纬度</text>
+						<text class="feature-txt">{{northeast.latitude + ',' + northeast.longitude}}</text>
+					</view>
+				</view>
+			</view>
+    </view>
+	</view>
+	<view class="btn-container mt30">
+		<view class="primary-btn reset-btn" bindtap="onRun">运行</view>
+	</view>
+	<view class="doc-btn mt20 mb20" bindtap="onWatchDoc">
+		查看接入文档
+	</view>
+	<copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>
+

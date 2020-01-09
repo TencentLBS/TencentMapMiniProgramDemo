@@ -1,0 +1,33 @@
+<!--pages/webservice/reverseGeocoder-result/reverseGeocoder-result.wxml-->
+<view class="search-container">
+  <!-- 导航栏组件 -->
+  <tab tabList="{{tabList}}" bind:clickTab="clickTab" />
+  <view class="result-container">
+    <view class="result-content {{tabList[0].show ? 'show-content' : '' }}">
+      <view class="map-content">
+        <map class="map" id="map" show-location markers="{{markers}}" include-points="{{includePoints}}">
+        </map>
+      </view>
+      <view class="pois-contianer">
+        <scroll-view class="poi-list" wx:if="{{pois.length > 0}}">
+          <view class="list-item" wx:for="{{pois}}" wx:key="index">
+            <view class="item-title">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="item-info">
+              <text class="item-address">{{item.address}}</text>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="noPois" wx:if="{{pois.length === 0}}">搜索无结果</view>
+      </view>
+    </view>
+    <view class="result-content p20 {{tabList[1].show ? 'show-content' : '' }}">
+      <!-- <rich-text nodes="{{requestJson}}"></rich-text> -->
+      <text class="page-code" decode="true">{{requestJson}}</text>
+    </view>
+    <view class="result-content {{tabList[2].show ? 'show-content' : '' }}">
+      <rich-text nodes="{{resultJson}}"></rich-text>
+    </view>
+  </view>
+</view>

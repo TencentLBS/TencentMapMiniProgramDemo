@@ -1,0 +1,45 @@
+<!--pages/webservice/reverseGeocoder-form/reverseGeocoder-form.wxml-->
+<view class="map-container">
+  <view class="map-content">
+    <view class="introduce plr20">提供经纬度到结构化地址的转换能力，包括文字地址描述、省市区等行政区划信息、门牌号、商圈、道路与交叉口以及周边地点列表等信息。</view>
+    <view class="plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+				longitude="{{location.longitude}}"
+				scale="16"
+				bindregionchange="onChangeRegion"
+			>
+				<cover-image
+					class="locationpicker-ic-marker {{animation ? 'locationpicker-animation' : ''}}"
+					src="./img/Big_Marker@2x.png"
+					bindanimationend="onMarkerAnimationend"
+				/>
+      </map>
+    </view>
+    <view class="feature-container pl20">
+      <view class="feature-content border-bottom">
+        <text class="feature-label">坐标</text>
+        <text class="feature-txt">{{regionCallbackTxt}}</text>
+      </view>
+			<view class="feature-content border-bottom">
+        <text class="feature-label">周边地点列表</text>
+        <switch color="#3875FF" checked="{{isShowSubpois}}" bindchange="onChangeShowSubpois"></switch>
+      </view>
+			<view class="feature-content" bindtap="onSelectPolicy">
+				<text class="feature-label">列表搜索策略</text>
+				<view class="feature-txt">
+					<text style="color: #222;">{{policyList[policy - 1].title}}</text><image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+				</view>
+			</view>
+    </view>
+	</view>
+	<view class="btn-container mt30">
+		<view class="primary-btn reset-btn" bindtap="onRun">运行</view>
+	</view>
+	<view class="doc-btn mt20 mb20" bindtap="onWatchDoc">
+		查看接入文档
+	</view>
+	<copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

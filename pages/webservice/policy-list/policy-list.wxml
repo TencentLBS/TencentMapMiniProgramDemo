@@ -1,0 +1,17 @@
+<!--pages/webservice/policy-list/policy-list.wxml-->
+<view class="policy-container" hover-class="none" hover-stop-propagation="false">
+	<view
+		class="pl20 border-bottom policy-item"
+		wx:for="{{policyList}}"
+		wx:key="index"
+		data-value="{{item.value}}"
+		bindtap="onSelectPolicy"
+	>
+		<view class="policy-title">
+			{{item.title}}
+		</view>
+		<view class="policy-subtitle" wx:if="{{item.subtitle}}">
+			{{item.subtitle}}
+		</view>
+	</view>
+</view>

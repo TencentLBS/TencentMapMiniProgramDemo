@@ -1,0 +1,76 @@
+/* pages/webservice/reverseGeocoder-result/reverseGeocoder-result.wxss */
+.reverseGeocoder-container {
+  width: 100%;
+  overflow: hidden;
+}
+.result-show {
+  background: #fff;
+  width: 100%;
+  margin-top: 10px;
+}
+.result-container {
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+.result-content {
+  margin-top: 10px;
+  position: absolute;
+  z-index: 1;
+  overflow: auto;
+  display: none;
+}
+.show-content {
+  height: auto;
+  z-index: 2;
+  width: 100%;
+  display: block;
+}
+.feature-container {
+  background: #FFF;
+}
+.p20 {
+  padding: 20px;
+}
+.pois-container {
+  margin-top: 10px;
+  background: #fff;
+}
+.poi-list .list-item {
+  height: 84px;
+  margin: 0 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.poi-list .item-title {
+  line-height: 24px;
+  width: 80%;
+  font-size: 16px;
+  color: #222222;
+  letter-spacing: 0;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.poi-list .item-info {
+  width: 80%;
+  line-height: 20px;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #444444;
+  letter-spacing: 0;
+}
+.poi-list .item-distance {
+  margin-right: 10px;
+}
+.pois-title {
+  font-size: 16px;
+  padding-top: 20px;
+  margin: 10px 20px 0;
+}
+.hidden {
+  overflow: hidden
+}

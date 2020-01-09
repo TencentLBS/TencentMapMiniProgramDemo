@@ -1,0 +1,53 @@
+/* pages/webservice/search-form/search-form.wxss */
+.map-container {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100%;
+}
+.map-content {
+  background: #FFF;
+  padding: 20px 0 0;
+  margin-top: 10px;
+}
+.map {
+  width:100%;
+  height:235px;
+  position:relative;
+}
+.feature-switch {
+  line-height: 51px;
+}
+.locationpicker-ic-marker {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -44px;
+  margin-left: -15px;
+  width: 30px;
+  height: 44px;
+  z-index: 9999;
+}
+.locationpicker-animation {
+  animation: markermove 0.5s ease;
+}
+@keyframes markermove
+{
+  from {transform: translateY(0)}
+  50% {transform: translateY(-50px)}
+  to {transform: translateY(0)}
+}
+.keyword-input {
+	text-align: right;
+	width: 194px;
+	height: 20px;
+	line-height: 20px;
+	color: #222;
+}
+.active {
+	color: #222;
+	font-weight: 500;
+}
