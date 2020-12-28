@@ -1,4 +1,3 @@
-/* pages/plugin/subway/subway.wxss */
 .map-view-container {
   display: flex;
   flex-direction: column;

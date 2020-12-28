@@ -29,7 +29,11 @@
   margin-left: -15px;
   width: 30px;
   height: 44px;
-  z-index: 9999;
+  z-index: 10;
+}
+.locationpicker-img {
+  width: 30px;
+  height: 44px;
 }
 .locationpicker-animation {
   animation: markermove 0.5s ease;

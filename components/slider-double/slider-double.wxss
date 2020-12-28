@@ -1,0 +1,55 @@
+/* components/slider-double/slider-double.wxss */
+
+.slider-double {
+  /*height: 100%;*/
+  width: 100%;
+  height: 22px;
+  position: relative;
+}
+
+.slider-body {
+  height: 2px;
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.body {
+  bottom: 32px;
+  background-color: #3875FF;
+  z-index: 0.3;
+}
+
+.left {
+  bottom: 30px;
+  z-index: 0.1;
+}
+
+.right {
+  z-index: 0.2;
+  bottom: 34px;
+}
+
+.slider-item {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.10), 0 2px 4px 0 rgba(0,0,0,0.20);
+  background-color: #FFFFFF;
+}
+
+.min {
+  position: relative;
+  top: 0px;
+  /*left: 100px;*/
+}
+
+.max {
+  position: relative;
+  bottom: 20px;
+  /*left: 600px;*/
+}
+
+.hide{
+  display: none;
+}

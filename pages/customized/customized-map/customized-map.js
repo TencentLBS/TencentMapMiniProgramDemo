@@ -1,29 +1,31 @@
-// pages/customized/customized-map/customized-map.js
-import {MOYUAN_KEY, BAIQIAN_KEY, YULU_KEY, DIFUNI_KEY} from '../../../config/appConfig';
-const KEY_MAP = {
-	moyuan: MOYUAN_KEY,
-	baiqian: BAIQIAN_KEY,
-	yulu: YULU_KEY,
-	difuni: DIFUNI_KEY
+import {CUSTOM_KEY} from '../../../config/appConfig';
+const STYLE_MAP = {
+	wxshense: 1,
+	chuxing: 2,
+	danyue: 3,
+	yulu: 4,
+	yancui: 5
 };
 const TEXT_MAP = {
-	moyuan: '墨渊',
-	baiqian: '白浅',
+	wxshense: '微信深色',
+	chuxing: '出行',
 	yulu: '玉露',
-	difuni: '蒂芙尼'
+	yancui: '烟翠',
+	danyue: '澹月',
 };
 Page({
 	data: {
-		key: '',
+		key: CUSTOM_KEY,
 		text: '',
-		mapShow: false
+		mapShow: false,
+		style: 1
 	},
 	onLoad: function (options) {
 		const {type} = options;
 		this.setData({
 			mapShow: true,
-			key: KEY_MAP[type],
-			text: TEXT_MAP[type]
+			text: TEXT_MAP[type],
+			style: STYLE_MAP[type]
 		});
 	},
 	onUnload () {
@@ -34,6 +36,8 @@ Page({
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

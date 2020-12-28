@@ -1,4 +1,3 @@
-<!--pages/customized/customized-map/customized-map.wxml-->
 <view class="map-view-container">
 	<view class="custom-intro">
 		<view style='font-size: 14pt;margin:10px 20px;'>
@@ -16,6 +15,6 @@
 		longitude="116.313972" latitude="39.980014"
 		scale='16'
 		subkey="{{key}}"
-		layer-style="1"
+		layer-style="{{style}}"
 	></map>
 </view>

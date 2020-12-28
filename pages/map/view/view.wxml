@@ -1,11 +1,12 @@
-<!--pages/map-view/map-view.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
     <view class="introduce plr20">此示例展示地图视野控制能力，包含缩放、平移、旋转、俯视等能力。</view>
     <view class="map-container plr20">
 			<map
 				class="map"
-				id="map"
+        id="map"
+        min-scale="{{minScale}}"
+        max-scale="{{maxScale}}"
 				latitude="{{location.latitude}}"
 				longitude="{{location.longitude}}"
 				scale="{{scale}}"
@@ -37,9 +38,22 @@
           <view class="feature-txt-item {{isGuGong ? '' : 'active'}}" data-id="yiheyuan" bindtap="onChangeView">平移至颐和园</view>
         </view>
       </view>
+      <view class="feature-content">
+        <text class="feature-label">缩放级别</text>
+        <view class="feature-txt" style="color: #222">
+          {{minScale}}-{{maxScale}}级
+        </view>
+      </view>
+      <view class="pr20">
+        <slider-double id="slider" class="slider" min="{{3}}" max="{{20}}" maxValue="{{20}}" minValue="{{3}}" bind:lowValueChange="onChangeMinScale" bind:heighValueChange="onChangeMaxScale"/>
+        <view class="feature-content rotate-range">
+          <text>3</text>
+          <text>20</text>
+        </view>
+      </view>
     </view>
   </view>
-  <view class="primary-btn mt30" bindtap="onReset">
+  <view class="primary-btn mt30 mb20" bindtap="onReset">
     重置
   </view>
 </view>

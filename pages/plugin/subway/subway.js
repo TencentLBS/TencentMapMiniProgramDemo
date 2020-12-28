@@ -1,4 +1,3 @@
-// pages/plugin/subway/subway.js
 import {PLUGIN_KEY, REFERER} from '../../../config/appConfig';
 Page({
 	data: {
@@ -18,6 +17,8 @@ Page({
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

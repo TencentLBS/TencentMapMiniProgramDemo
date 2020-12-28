@@ -1,4 +1,3 @@
-<!--pages/plugin/route-plan.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
     <view class="introduce">腾讯位置服务路线规划插件提供路线规划等功能，根据起终点，多种出行方式智能规划最佳出行路线及详情。开发者可以将路线规划插件嵌入到自建小程序的页面里，实现路线规划功能。</view>
@@ -7,16 +6,16 @@
 		<view class="feature-content border-bottom border-top">
 			<text class="feature-label">起点位置</text>
 			<view class="feature-txt" bindtap="onChooseStartPoint">
-				<text wx:if="{{!startPoint}}">获取选点</text>
-				<text class="active" wx:else>{{startPoint.name}}</text>
+				<text wx:if="{{!startPoint}}" class="point">获取选点</text>
+				<text class="point active" wx:else>{{startPoint.name}}</text>
 				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 			</view>
 		</view>
 		<view class="feature-content border-bottom">
 			<text class="feature-label">终点位置</text>
 			<view class="feature-txt" bindtap="onChooseEndPoint">
-				<text wx:if="{{!endPoint}}">获取选点</text>
-				<text class="active" wx:else>{{endPoint.name}}</text>
+				<text wx:if="{{!endPoint}}" class="point">获取选点</text>
+				<text class="active point" wx:else>{{endPoint.name}}</text>
 				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 			</view>
 		</view>
@@ -47,11 +46,18 @@
 				<image wx:if="{{customStyles[keyIndex].icon}}" class="custom-icon" src="{{customStyles[keyIndex].icon}}"></image>{{customStyles[keyIndex].text}}<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 			</view>
 		</view>
+		<view class="feature-content" bindtap="ontriggerSelectThemeColor">
+			<text class="feature-label">主题色</text>
+			<view class="feature-txt">
+				<view class="bg-icon" style="{{'background-color:' + (themeColor)}}"></view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
 	</view>
   <view class="primary-btn mt30" bindtap="onWatchDemo">
     查看示例
 	</view>
-	<view class="doc-btn mt20" bindtap="onWatchDoc">
+	<view class="doc-btn mt20 mb20" bindtap="onWatchDoc">
 		查看接入文档
 	</view>
 	<mp-actionsheet
@@ -59,5 +65,12 @@
 		ext-class="custom-actionsheet"
 		show="{{showCustomActionsheet}}"
 		actions="{{customStyles}}">
+	</mp-actionsheet>
+
+	<mp-actionsheet
+		bindactiontap="onSelectThemeColor"
+		ext-class="theme-actionsheet"
+		show="{{showThemeColorActionsheet}}"
+		actions="{{themeColors}}">
 	</mp-actionsheet>
 </view>

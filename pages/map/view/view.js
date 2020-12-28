@@ -1,5 +1,5 @@
-// pages/control-view/control-view.js
 import {CDN_PATH} from '../../../config/appConfig';
+const util = require('../../../utils/util');
 Page({
 
 	/**
@@ -22,18 +22,17 @@ Page({
 		scale: 15,
 		isOverLooking: false,
 		isGuGong: true,
-		is3D: true
+		is3D: true,
+		minScale: 3,
+		maxScale: 20,
 	},
-
+	onReady () {
+		this.slider = this.selectComponent('#slider');
+	},
 	// 控制地图缩放级别
 	onIncreaseScale () {
-		let scale = this.data.scale;
-		if (scale === 20) {
-			return ;
-		}
-		scale++;
 		this.setData({
-			scale: scale
+			scale: 17
 		});
 	},
 	onDecreaseScale () {
@@ -50,7 +49,10 @@ Page({
 	// 开启俯仰效果
 	onChangeOverLooking (event) {
 		this.setData({
-			isOverLooking: event.detail.value
+			isOverLooking: event.detail.value,
+			setting: {
+				skew: event.detail.value ? 90 : 0
+			}
 		});
 	},
 
@@ -64,6 +66,10 @@ Page({
 				success: () => {
 					this.setData({
 						isGuGong: true,
+						location: {
+							latitude: 39.918056,
+							longitude: 116.397027
+						},
 					});
 				},
 				fail: () => {
@@ -79,6 +85,10 @@ Page({
 				success: () => {
 					this.setData({
 						isGuGong: false,
+						location: {
+							latitude: 39.992990,
+							longitude: 116.272362,
+						},
 					});
 				},
 				fail: () => {
@@ -98,15 +108,54 @@ Page({
 				enableRotate: true
 			},
 			location: {
-				latitude: 40.040415,
-				longitude: 116.273511,
+				latitude: 39.918056,
+				longitude: 116.397027
 			},
 			scale: 16,
+			minScale: 3,
+			maxScale: 20,
 			isOverLooking: false,
-			isGuGong: true
+			isGuGong: true,
+		});
+		this.slider.reset();
+	},
+	onChangeMinScale (e) {
+		const version = wx.getSystemInfoSync().SDKVersion;
+
+		if (util.compareVersion(version, '2.13.0') >= 0) {
+			wx.openBluetoothAdapter();
+		} else {
+			// 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+			wx.showToast({
+				title: '当前微信版本过低，无法使用缩放级别功能，请升级到最新微信版本后重试。',
+				icon: 'none'
+			});
+			return;
+		}
+		this.setData({
+			minScale: e.detail.lowValue
+		});
+	},
+	onChangeMaxScale (e) {
+		const version = wx.getSystemInfoSync().SDKVersion;
+
+		if (util.compareVersion(version, '2.13.0') >= 0) {
+			wx.openBluetoothAdapter();
+		} else {
+			// 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+			wx.showToast({
+				title: '当前微信版本过低，无法使用缩放级别功能，请升级到最新微信版本后重试。',
+				icon: 'none'
+			});
+			return;
+		}
+		this.setData({
+			maxScale: e.detail.heighValue
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

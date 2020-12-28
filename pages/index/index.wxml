@@ -1,11 +1,10 @@
-<!--主页-->
 <view class="page-main-container">
 	<view class="main-content">
 		<view class="header-container">
 			<view class="title-container">
-				<image class="title-img" src="{{CDN_PATH + '/logo@3x.png'}}"></image>
+				<image class="title-img" src="https://mapapi.qq.com/web/lbs/logo/demo_center_logo@3x.png"></image>
 			</view>
-			<text class="introduce">腾讯位置服务示例中心包含小程序下 Map 组件、微信小程序插件、个性化地图示例。通过高频功能、典型场景供开发者参考，降低开发成本，提升开发效率。         </text>
+			<view class="introduce">腾讯位置服务示例中心包含小程序下 Map 组件、微信小程序插件、个性化地图示例。通过高频功能、典型场景供开发者参考，降低开发成本，提升开发效率。更多微信小程序功能，详见<text class="link-txt" bindtap="onLinkLBS">《微信小程序解决方案》</text></view>
 		</view>
 		<view class="demo-center-container">
 			<view wx:for="{{menuList}}" wx:key="id">

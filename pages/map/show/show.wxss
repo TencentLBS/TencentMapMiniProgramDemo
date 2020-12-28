@@ -1,9 +1,7 @@
-/* pages/show-map/show-map.wxss */
 .show-map-container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  height: 100%;
   width: 100%;
   background: #F8F8F7;
 }
@@ -34,7 +32,7 @@
 }
 .map {
   width:100%;
-  height:235px;
+  height:400px;
 }
 .indoor-map {
 	width: 100%;

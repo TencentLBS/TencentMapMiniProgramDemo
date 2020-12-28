@@ -1,4 +1,3 @@
-// pages/show-map/show-map.js
 import {INDOOR_KEY} from '../../../config/appConfig';
 Page({
 
@@ -25,6 +24,7 @@ Page({
 		}],
 		is3D: false,
 		isRealTraffic: false,
+		isShowPoi: false,
 		key: INDOOR_KEY
 	},
 	clickTab (event) {
@@ -50,7 +50,14 @@ Page({
 			isRealTraffic: event.detail.value
 		});
 	},
+	onChangePoi (event) {
+		this.setData({
+			isShowPoi: event.detail.value
+		});
+	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

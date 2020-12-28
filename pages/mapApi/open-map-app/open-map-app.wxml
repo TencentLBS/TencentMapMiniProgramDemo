@@ -1,0 +1,38 @@
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">
+      <view class="introduce-regular">MapContext.openMapApp(Object object)</view>
+      <view class="introduce-regular">基础库 2.14.0 开始支持，低版本需做<text class="link-txt" bindtap="onShowCompatibility">兼容处理</text></view>
+      <view class="introduce-medium">拉起地图APP选择导航</view>
+      <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+    </view>
+    <view class="feature-container">
+      <view class="feature-content border-bottom border-top">
+        <text class="feature-label">起点位置</text>
+        <view class="feature-txt">
+          <text class="point active">当前位置</text>
+        </view>
+      </view>
+      <view class="feature-content">
+        <text class="feature-label">终点位置</text>
+        <view class="feature-txt" bindtap="onChooseLocation">
+          <text class="point" wx:if="{{!location}}">获取终点</text>
+          <text class="point active" wx:else>{{location.name}}</text>
+          <image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+        </view>
+      </view>
+	  </view>
+    <view class="map-container plr20" hidden="true">
+			<map
+				class="map"
+				id="map"
+			>
+      </map>
+    </view>
+  </view>
+  <view class="primary-btn mt30 mb20" bindtap="onRunApi" >
+    导航
+  </view>
+  <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>
+

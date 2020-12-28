@@ -29,7 +29,7 @@ Page({
 		const data = {
 			location: options.location
 		};
-		let dataTxt = '{\n&emsp;&emsp;location:' + options.location + ',';
+		let dataTxt = '{\n&emsp;&emsp;location:"' + options.location + '",';
 		if (options.getPoi === '1') {
 			data.get_poi = options.getPoi;
 			dataTxt += '\n&emsp;&emsp;get_poi:' + options.getPoi + ',';

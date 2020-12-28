@@ -1,4 +1,3 @@
-/**index.wxss**/
 .page-main-container {
   display: flex;
   flex-direction: column;
@@ -6,7 +5,7 @@
   box-sizing: border-box;
   background: #F8F8F7;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
 }
 .main-content {
 	flex: 1;
@@ -19,11 +18,12 @@
   box-sizing: border-box;
   background: #FFF;
 }
-.title-contianer {
+.title-container {
+	text-align: center;
   overflow: hidden;
 }
 .title-img {
-  margin:0 16px 17px 69px;
+	margin-bottom: 17px;
   height: 38px;
   vertical-align: top;
   width: 196px;
@@ -111,4 +111,7 @@
 	font-weight: 500;
 	font-size: 14px;
 	color: #3875FF;
+}
+.introduce{
+  margin-bottom: 0;
 }

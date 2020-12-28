@@ -1,16 +1,53 @@
-// pages/map/overlay/overlay.js
 import {CDN_PATH} from '../../../config/appConfig';
 const INIT_POLYLINE = {
 	points: [
-		{latitude: 40.038540, longitude: 116.272389},
-		{latitude: 40.041407, longitude: 116.274738}
+		{latitude: 40.040129,longitude: 116.274968},
+		{latitude: 40.038974,longitude: 116.275214},
+		{latitude: 40.038974,longitude: 116.275214},
+		{latitude: 40.038565000000006,longitude: 116.272683},
+		{latitude: 40.03848200000001,longitude: 116.27209500000001},
+		{latitude: 40.03836100000001,longitude: 116.27074},
+		{latitude: 40.03832700000001,longitude: 116.270515},
+		{latitude: 40.03807400000001,longitude: 116.268038},
+		{latitude: 40.03801400000001,longitude: 116.26763600000001},
+		{latitude: 40.03801400000001,longitude: 116.26763600000001},
+		{latitude: 40.03790800000001,longitude: 116.267508},
+		{latitude: 40.03450300000001,longitude: 116.270961},
+		{latitude: 40.03419900000001,longitude: 116.271221},
+		{latitude: 40.03396500000001,longitude: 116.271401},
+		{latitude: 40.03245000000001,longitude: 116.272472}
 	],
 	color: '#3875FF',
 	width: 8,
 	dottedLine: false,
-	borderWidth: 2
+	arrowLine: false,
+	borderWidth: 2,
 };
-
+const COLOR_POLYLINE = {
+	points: [
+		{latitude: 40.040129,longitude: 116.274968},
+		{latitude: 40.038974,longitude: 116.275214},
+		{latitude: 40.038974,longitude: 116.275214},
+		{latitude: 40.038565000000006,longitude: 116.272683},
+		{latitude: 40.03848200000001,longitude: 116.27209500000001},
+		{latitude: 40.03836100000001,longitude: 116.27074},
+		{latitude: 40.03832700000001,longitude: 116.270515},
+		{latitude: 40.03807400000001,longitude: 116.268038},
+		{latitude: 40.03801400000001,longitude: 116.26763600000001},
+		{latitude: 40.03801400000001,longitude: 116.26763600000001},
+		{latitude: 40.03790800000001,longitude: 116.267508},
+		{latitude: 40.03450300000001,longitude: 116.270961},
+		{latitude: 40.03419900000001,longitude: 116.271221},
+		{latitude: 40.03396500000001,longitude: 116.271401},
+		{latitude: 40.03245000000001,longitude: 116.272472}
+	],
+	color: '#3875FF',
+	width: 8,
+	dottedLine: false,
+	arrowLine: true,
+	borderWidth: 2,
+	colorList: ['#30BC6B', '#30BC6B', '#F5B841', '#A0152F','#A0152F', '#A0152F', '#A0152F', '#A0152F', '#F23636', '#F23636', '#F23636', '#F5B841']
+};
 const INIT_POLYGON = {
 	points: [
 		{latitude: 40.041054, longitude: 116.272303},
@@ -50,18 +87,34 @@ Page({
 			'#00C562': `${CDN_PATH}/iconLinecolorGreen@3x.png`,
 			'#F74A14': `${CDN_PATH}/iconLinecolorRed@3x.png`
 		},
+		polylineType: [{
+			name: '实线',
+			type: 0,
+			value: false
+		},{
+			name: '虚线',
+			type: 1,
+			value: true
+		},{
+			name: '彩虹线',
+			type: 2,
+			value: false
+		}],
 		widthImgs: [{
 			normal: `${CDN_PATH}/iconLinewidthS_Normal@3x.png`,
 			active: `${CDN_PATH}/iconLinewidthS_Activated@3x.png`,
-			value: 6
+			value: 6,
+			borderValue: 1
 		},{
 			normal: `${CDN_PATH}/iconLinewidthM_Normal@3x.png`,
 			active: `${CDN_PATH}/iconLinewidthM_Activated@3x.png`,
-			value: 8
+			value: 8,
+			borderValue: 2
 		},{
 			normal: `${CDN_PATH}/iconLinewidthL_Normal@3x.png`,
 			active: `${CDN_PATH}/iconLinewidthL_Activated@3x.png`,
-			value: 10
+			value: 10,
+			borderValue: 3
 		}],
 		arrowImgs: [{
 			normal: `${CDN_PATH}/iconArrow1_Normal@3x.png`,
@@ -118,7 +171,7 @@ Page({
 			{text: '', value: '#3875FF'},
 			{text: '', value: '#00C562'},
 			{text: '', value: '#ffffff'},
-			{text: '无', value: ''}
+			{text: '默认颜色', value: ''}
 		],
 		circleColors: [
 			{text: '', value: '#3875FF', icon: `${CDN_PATH}/iconLinecolorBlue@3x.png`},
@@ -141,8 +194,8 @@ Page({
 			...INIT_CIRCLE
 		}],
 		tabIndex: 0,
+		polylineTypeIndex: 0,
 		polylineWidthIndex: 1,
-		polylineArrowIndex: 0,
 		polygonWidthIndex: 1,
 		circleWidthIndex: 1,
 		showPolylineColorActionsheet: false,
@@ -150,11 +203,24 @@ Page({
 		showPolygonBgColorActionsheet: false,
 		showPolygonBorderColorActionsheet: false,
 		showCircleBgColorActionsheet: false,
-		showCircleColorActionsheet: false
+		showCircleColorActionsheet: false,
+		scale: 15,
+		location: {
+			latitude: 40.040415,
+			longitude: 116.273511
+		},
+		polylineColor: '#3875FF',
+		polylineWidth: 8,
+		polylineBorderColor: '',
 	},
 	onClickTab (event) {
 		this.setData({
-			tabIndex: event.detail.current
+			tabIndex: event.detail.current,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	ontriggerSelectPolylineColor () {
@@ -162,11 +228,40 @@ Page({
 			showPolylineColorActionsheet: true
 		});
 	},
+	onSelectPolylineType (event) {
+		const {index} = event.currentTarget.dataset;
+		if (index === this.data.polylineTypeIndex) {
+			return;
+		}
+		if (this.data.polylineType[index].type === 2) {
+			this.setData({
+				polyline: [{
+					...COLOR_POLYLINE,
+				}],
+				'polyline[0].width': this.data.polylineWidth,
+				'polyline[0].borderColor': this.data.polylineBorderColor,
+				polylineTypeIndex: index,
+			});
+		} else {
+			this.setData({
+				polyline: [{
+					...INIT_POLYLINE
+				}],
+				polylineTypeIndex: index,
+				'polyline[0].color': this.data.polylineColor,
+				'polyline[0].width': this.data.polylineWidth,
+				'polyline[0].borderColor': this.data.polylineBorderColor,
+				'polyline[0].dottedLine': this.data.polylineType[index].value
+			});
+		}
+		console.log(this.data.polyline);
+	},
 	onSelectPolylineColor (event) {
 		const {value} = event.detail;
 		this.setData({
 			showPolylineColorActionsheet: false,
-			'polyline[0].color': value
+			'polyline[0].color': value,
+			polylineColor: value
 		});
 	},
 	onSelectPolylineWidth (event) {
@@ -176,26 +271,8 @@ Page({
 		}
 		this.setData({
 			polylineWidthIndex: index,
-			'polyline[0].width': this.data.widthImgs[index].value
-		});
-	},
-	onChangeShowDotted (event) {
-		this.setData({
-			polylineArrowIndex: -1,
-			'polyline[0].dottedLine': event.detail.value,
-			'polyline[0].arrowLine': false
-		});
-	},
-	onSelectPolylineArrow (event) {
-		const {index} = event.currentTarget.dataset;
-		if (index === this.data.polylineArrowIndex) {
-			return;
-		}
-		this.setData({
-			polylineArrowIndex: index,
-			'polyline[0].arrowLine': true,
-			'polyline[0].dottedLine': false,
-			'polyline[0].arrowIconPath': this.data.arrowImgs[index].active
+			'polyline[0].width': this.data.widthImgs[index].value,
+			polylineWidth: this.data.widthImgs[index].value
 		});
 	},
 	ontriggerSelectPolylineBorderColor () {
@@ -208,7 +285,8 @@ Page({
 		if (value) {
 			this.setData({
 				showPolylineBorderColorActionsheet: false,
-				'polyline[0].borderColor': value
+				'polyline[0].borderColor': value,
+				polylineBorderColor: value
 			});
 		} else {
 			const polyline = {...this.data.polyline[0]};
@@ -344,8 +422,13 @@ Page({
 			'polyline[0]': {
 				...INIT_POLYLINE
 			},
-			polylineArrowIndex: 0,
-			polylineWidthIndex: 1
+			polylineWidthIndex: 1,
+			polylineTypeIndex: 0,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	onResetPolygonConfig () {
@@ -353,7 +436,12 @@ Page({
 			'polygons[0]': {
 				...INIT_POLYGON
 			},
-			polygonWidthIndex: 1
+			polygonWidthIndex: 1,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	onResetCircleConfig () {
@@ -361,10 +449,17 @@ Page({
 			'circles[0]': {
 				...INIT_CIRCLE
 			},
-			circleWidthIndex: 1
+			circleWidthIndex: 1,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

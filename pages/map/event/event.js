@@ -1,4 +1,3 @@
-// pages/map/event/event.js
 import {
 	CDN_PATH,
 	PLUGIN_KEY
@@ -99,6 +98,8 @@ Page({
 		}
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

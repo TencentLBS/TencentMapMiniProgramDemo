@@ -1,5 +1,4 @@
-//index.js
-import {CDN_PATH} from '../../config/appConfig';
+import {CDN_PATH, COS_PATH} from '../../config/appConfig';
 Page({
 	data: {
 		CDN_PATH,
@@ -13,7 +12,7 @@ Page({
 				id: 'map',
 				name: 'Map 组件',
 				open: false,
-				img: `${CDN_PATH}/iconMapmodule@3x.png`,
+				img: `${CDN_PATH}/iconMapmodule@3x.png?cache=0`,
 				pages: [{
 					name: '地图显示',
 					url: '../map/show/show',
@@ -35,10 +34,35 @@ Page({
 				}]
 			},
 			{
+				id: 'mapApi',
+				name: 'Map API',
+				open: false,
+				img: `${COS_PATH}/iconMapapi@3x.png?cache=0`,
+				pages: [{
+					name: 'includePoints',
+					url: '../mapApi/include-points/include-points'
+				},{
+					name: 'moveAlong',
+					url: '../mapApi/move-along/move-along'
+				},{
+					name: 'translateMarker',
+					url: '../mapApi/translate-marker/translate-marker'
+				},{
+					name: 'addGroundOverlay',
+					url: '../mapApi/add-ground-overlay/add-ground-overlay'
+				},{
+					name: 'initMarkerCluster',
+					url: '../mapApi/init-marker-cluster/init-marker-cluster'
+				},{
+					name: 'openMapApp',
+					url: '../mapApi/open-map-app/open-map-app'
+				}]
+			},
+			{
 				id: 'plugin',
 				name: '小程序插件',
 				open: false,
-				img: `${CDN_PATH}/iconMiniprogram@3x.png`,
+				img: `${CDN_PATH}/iconMiniprogram@3x.png?cache=0`,
 				pages: [{
 					name: '路线规划插件',
 					url: '../plugin/route-plan/route-plan'
@@ -55,14 +79,14 @@ Page({
 				name: '个性化地图',
 				open: false,
 				url: '../customized/customized-index/customized-index',
-				img: `${CDN_PATH}/iconMap@3x.png`,
+				img: `${CDN_PATH}/iconMap@3x.png?cache=0`,
 				pages: []
 			},
 			{
 				id: 'webservice',
 				name: '接口能力',
 				open: false,
-				img: `${CDN_PATH}/iconPort@3x.png`,
+				img: `${CDN_PATH}/iconPort@3x.png?cache=0`,
 				pages: [{
 					name: '逆地址解析',
 					url: '../webservice/reverseGeocoder-form/reverseGeocoder-form'
@@ -100,10 +124,20 @@ Page({
 	},
 	watchCode () {
 		this.setData({
-			dialogShow: true
+			dialogShow: true,
+			link: 'https://github.com/TencentLBS/TencentMapMiniProgramDemo'
+		});
+	},
+	// 链接到lbs官网
+	onLinkLBS () {
+		this.setData({
+			dialogShow: true,
+			link: 'https://lbs.qq.com/miniSolution?adtag=wx.slzx.sy'
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

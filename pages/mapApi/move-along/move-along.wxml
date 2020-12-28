@@ -1,0 +1,28 @@
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">
+      <view class="introduce-regular">MapContext.moveAlong(Object object)</view>
+      <view class="introduce-regular">基础库 2.13.0 开始支持，低版本需做<text class="link-txt" bindtap="onShowCompatibility">兼容处理</text></view>
+      <view class="introduce-medium">沿指定路径移动 marker，用于轨迹回放等场景。动画完成时触发回调事件，若动画进行中，对同一 marker 再次调用 moveAlong 方法，前一次的动画将被打断。</view>
+      <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+    </view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+        longitude="{{location.longitude}}"
+        markers="{{markers}}"
+        polyline="{{polyline}}"
+        scale="{{scale}}"
+        enable-zoom="{{false}}"
+        enable-scroll="{{false}}"
+			>
+      </map>
+    </view>
+  </view>
+  <view class="primary-btn mt30 mb20 {{isDisabled ? 'is-disabled' : ''}}" bindtap="onRunApi" >
+    执行
+  </view>
+  <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

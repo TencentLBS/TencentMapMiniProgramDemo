@@ -1,4 +1,3 @@
-/* pages/customized/customized.wxss */
 .map-view-container {
   display: flex;
   flex-direction: column;
@@ -23,4 +22,9 @@
 .custom-img {
 	width: 80px;
 	height: 80px;
+}
+.feature-txt-title {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #222222;
 }

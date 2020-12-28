@@ -1,25 +1,35 @@
-<!--pages/plugin/document/document.wxml-->
 <view class="document">
 	<view class="page-h">
-		1. 插件申请接入
+		1. 入驻腾讯位置服务平台
+	</view>
+	<view class="page-p">
+		<view>
+			登录腾讯位置服务官网 lbs.qq.com ,支持 QQ 、微信、手机号注册账号。
+		</view>
+		<view>官网控制台，申请开发者密钥（ Key ）并正确设置。详情请浏览<text class="link-txt" bindtap="onShowDoc">《入门及使用限制》</text>
+		</view>
+	</view>
+	<view class="page-h">
+		2. 插件申请接入
 	</view>
 	<view class="page-p">
 		在腾讯公众平台中，“微信小程序官方后台 - 设置 - 第三方服务 - 插件管理” 里点击 “添加插件”，搜索 “腾讯位置服务路线规划” 申请，审核通过后，小程序开发者可在小程序内使用该插件。
 	</view>
 	<view class="page-h">
-		2. 引入插件包
+		3. 引入插件包
 		<text bindtap="onWatchLink" class="plugin-doc-link">
 			查看浏览插件最新版本
 		</text>
 	</view>
 	<text class="page-code" decode="true">{{docData[currentPlugin + ''].app}}</text>
 	<view class="page-h">
-		3. 设置定位授权
+		4. 设置定位授权
 	</view>
 	<text class="page-code" decode="true">{{docData[currentPlugin + ''].location}}</text>
 	<view class="page-h">
-		4. 使用插件
+		5. 使用插件
 	</view>
 	<text class="page-code" decode="true">{{docData[currentPlugin + ''].code}}</text>
 	<copy-dialog show="{{dialogShow}}" link="{{docData[currentPlugin + ''].link}}" bindclose="onDialogClose"></copy-dialog>
+	<copy-dialog show="{{docDialogShow}}" link="{{link}}" bindclose="onDocDialogClose"></copy-dialog>
 </view>

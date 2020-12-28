@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-		"pages/customized/customized-index/customized-index",
-		"pages/map/show/show",
+    "pages/customized/customized-index/customized-index",
+    "pages/map/show/show",
     "pages/map/view/view",
     "pages/map/control/control",
     "pages/map/event/event",
@@ -12,12 +12,18 @@
     "pages/plugin/subway/subway",
     "pages/plugin/location-picker/location-picker",
     "pages/customized/customized-map/customized-map",
-		"pages/map/overlay/overlay",
-		"pages/webservice/search-form/search-form",
+    "pages/map/overlay/overlay",
+    "pages/webservice/search-form/search-form",
     "pages/webservice/search-result/search-result",
     "pages/webservice/reverseGeocoder-form/reverseGeocoder-form",
     "pages/webservice/reverseGeocoder-result/reverseGeocoder-result",
-    "pages/webservice/policy-list/policy-list"
+    "pages/webservice/policy-list/policy-list",
+    "pages/mapApi/include-points/include-points",
+    "pages/mapApi/move-along/move-along",
+    "pages/mapApi/translate-marker/translate-marker",
+    "pages/mapApi/add-ground-overlay/add-ground-overlay",
+    "pages/mapApi/open-map-app/open-map-app",
+    "pages/mapApi/init-marker-cluster/init-marker-cluster"
   ],
   "permission": {
     "scope.userLocation": {
@@ -26,15 +32,15 @@
   },
   "plugins": {
     "routePlan": {
-      "version": "1.0.5",
+      "version": "1.0.11",
       "provider": "wx50b5593e81dd937a"
     },
     "chooseLocation": {
-      "version": "1.0.2",
+      "version": "1.0.5",
       "provider": "wx76a9a06e5b4e693e"
     },
     "subway": {
-      "version": "1.0.8",
+      "version": "1.0.9",
       "provider": "wx6aaf93c4435fa1c1"
     }
   },
@@ -48,6 +54,6 @@
     "weui": true
   },
   "style": "v2",
-	"sitemapLocation": "sitemap.json",
-	"servicemarket": true
+  "sitemapLocation": "sitemap.json",
+  "servicemarket": true
 }

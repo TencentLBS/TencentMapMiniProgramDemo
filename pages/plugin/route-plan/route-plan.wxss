@@ -1,12 +1,9 @@
-/* pages/plugin/route-plan.wxss */
 .map-view-container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   background: #F8F8F7;
   width: 100%;
-  height: 100%;
-
 }
 .map-view-content {
   background: #FFF;
@@ -78,4 +75,43 @@
 .custom-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell:nth-child(4)::after {
 	content: '自定义';
 	padding-left: 0;
+}
+.point {
+	text-align: right;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.bg-icon {
+	width:36px;
+	height:20px;
+	border-radius:2px;
+	box-sizing: border-box;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell {
+	position: relative;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:36px;
+	height:20px;
+	border-radius:2px;
+	box-sizing: border-box;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell:nth-child(1) {
+	color: #fff;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell:nth-child(1)::after {
+	background:#427CFF;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell:nth-child(2) {
+	color: #fff;
+}
+.theme-actionsheet .weui-actionsheet__menu .weui-actionsheet__cell:nth-child(2)::after {
+	background:#85d5c8;
 }

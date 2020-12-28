@@ -1,4 +1,3 @@
-/* pages/webservice/policy-list/policy-list.wxss */
 .policy-container {
 	background: #FFF;
   margin-top: 10px;

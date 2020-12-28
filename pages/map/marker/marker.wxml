@@ -1,4 +1,3 @@
-<!--pages/map/marker/marker.wxml-->
 <view class="show-map-container">
 	<!-- 导航栏组件 -->
 	<view>
@@ -9,7 +8,7 @@
     <view class="map-content {{tabIndex === 0 ? 'map-content-show' : '' }}">
 			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
 				<view class="introduce">此示例展示地图标注点基本设置，显示标注名称、更改图标、旋转角度、设置透明度。</view>
-      	<map class="map" markers="{{markers}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+      	<map class="map" markers="{{markers}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}"></map>
 			</view>
 			<view class="form-panel">
 				<scroll-view scroll-y="true" style="height: 100%;">
@@ -45,7 +44,8 @@
 						<view class="feature-content">
 							<text class="feature-label">透明度</text>
 							<view class="feature-txt" style="color: #222">
-								{{markers[0].alpha * 100}}%
+								<!-- {{markers[0].alpha * 100}}% -->
+								{{percent}}%
 							</view>
 						</view>
 						<view class="pr20">
@@ -65,7 +65,7 @@
     <view class="map-content {{tabIndex === 1 ? 'map-content-show' : '' }}">
 			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
 				<view class="introduce">此示例展示标注点气泡窗口（callout）基本设置，包括文本、文本颜色、文字大小、边框圆角、边框宽度、边框颜色、背景色、文本边缘留白、文本对齐方式等。</view>
-      	<map class="map" markers="{{calloutMarkers}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+      	<map class="map" markers="{{calloutMarkers}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}"></map>
 			</view>
 			<view class="form-panel">
 				<scroll-view scroll-y="true" style="height: 100%;">
@@ -95,7 +95,7 @@
 								</view>
 							</view>
 						</view>
-						<view class="feature-content border-bottom">
+						<!-- <view class="feature-content border-bottom">
 							<text class="feature-label">对齐方式</text>
 							<view class="feature-txt">
 								<view class="feature-txt-item" bindtap="onSelectAlign" data-index="{{index}}" wx:for="{{calloutAligns}}">
@@ -103,7 +103,7 @@
 									<image hidden="{{index !== calloutAlignIndex}}" class="align-img" src="{{item.active}}"></image>
 								</view>
 							</view>
-						</view>
+						</view> -->
 						<view class="feature-content border-bottom">
 							<text class="feature-label">边框圆角</text>
 							<switch class="feature-switch" color="#3875FF" checked="{{showRadius}}" bindchange="onChangeShowRadius"></switch>

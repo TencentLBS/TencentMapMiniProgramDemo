@@ -2,14 +2,13 @@
 
 page, view, scroll-view, swiper, movable-area, cover-view, text, icon, rich-text,
 progress, button, checkbox-group, checkbox, form, input, label, picker,
-picker-view, radio-group, slider, switch, textarea, navigator, audio, image,
-video, live-player, live-pusher, open-data, web-view {
+picker-view, radio-group, slider, switch, textarea, navigator, audio, video, live-player, live-pusher, open-data, web-view {
   box-sizing: border-box;
 }
 
 page {
-  height: 100%;
-  width: 100%;
+	width: 100%;
+	background: #F8F8F7;
 }
 
 .b2 {
@@ -22,7 +21,13 @@ page {
   line-height: 25px;
   margin-bottom: 20px;
 }
-
+.introduce-regular {
+	font-family: PingFangSC-Regular;
+}
+.introduce-medium {
+	font-family: PingFangSC-Medium;
+	font-weight: 500;
+}
 .feature-content {
 	padding-right: 20px;
   height: 56px;
@@ -32,14 +37,20 @@ page {
 }
 
 .feature-label {
+	padding-right: 10px;
   font-size: 14px;
-  color: #222;
+	color: #222;
+	white-space: nowrap;
 }
 .feature-txt {
-  font-size: 14px;
 	display:flex;
+	flex: 1;
+	justify-content: flex-end;
 	align-items: center;
-  color:rgba(34,34,34,0.5);
+	line-height: 20px;
+  font-size: 14px;
+	color:rgba(34,34,34,0.5);
+	word-break: break-all;
 }
 
 .feature-txt-item {
@@ -63,13 +74,24 @@ page {
 .feature-txt-item:first-child::before {
 	display: none;
 }
+/* 左边距 */
+.ml10 {
+	margin-left: 10px !important;
+}
 
 /* 上边距 */
+.mt10 {
+	margin-top: 10px !important;
+}
 .mt20 {
 	margin-top: 20px !important;
 }
 .mt30 {
 	margin-top: 30px !important;
+}
+
+.mb20 {
+	margin-bottom: 20px !important;
 }
 
 .pl20 {
@@ -127,4 +149,20 @@ page {
 .weui-actionsheet__cell {
 	box-sizing: border-box;
 	height: 56px;
+}
+.steps--des-icon {
+	height: auto !important;
+}
+.detail--bottom-button {
+	box-sizing: initial;
+}
+.link-txt {
+	font-size: 14px;
+  color: #3875FF;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 25px;
+}
+.flex-1 {
+	flex: 1;
 }

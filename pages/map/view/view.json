@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "slider-double": "../../../components/slider-double/slider-double"
+  },
   "navigationBarTitleText": "地图视野"
 }

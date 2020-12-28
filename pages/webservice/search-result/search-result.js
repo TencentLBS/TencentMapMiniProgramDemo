@@ -36,8 +36,8 @@ Page({
       &nbsp;&nbsp;service: "${WEBSERVICE_APPID}",
       &nbsp;&nbsp;api: "poiSearch",
       &nbsp;&nbsp;data: {
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keyword:${options.keyword},
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boundary:${options.boundary}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keyword:"${options.keyword}",
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boundary:"${options.boundary}"
       &nbsp;&nbsp;}
       }).then( res => {
       &nbsp;&nbsp;console.log(res)

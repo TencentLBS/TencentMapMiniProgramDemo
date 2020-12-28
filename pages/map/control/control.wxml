@@ -1,4 +1,3 @@
-<!--pages/map-control/map-control.wxml-->
 <view class="map-control-container">
   <view class="map-control-content">
     <view class="introduce plr20">此示例展示地图提供的控件产品，包含比例尺、指南针、定位控件。</view>

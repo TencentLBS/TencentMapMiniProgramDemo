@@ -1,4 +1,3 @@
-// pages/map/marker/marker.js
 import {CDN_PATH} from '../../../config/appConfig';
 const RADIUS = 4;
 const INIT_MARKER = {
@@ -21,7 +20,7 @@ const INIT_CALLOUT = {
 	padding: 12,
 	display: 'ALWAYS',
 	fontSize: 14,
-	textAlign: 'left',
+	textAlign: 'center',
 	borderRadius: RADIUS,
 	borderWidth: 2,
 	bgColor: '#ffffff'
@@ -133,18 +132,29 @@ Page({
 		}],
 		tabIndex: 0,
 		markerImgIndex: 0,
-		calloutAlignIndex: 0,
+		calloutAlignIndex: 1,
 		calloutBorderColorIndex: 3,
 		calloutBorderWidthIndex: 1,
 		calloutPaddingIndex: 0,
 		showColorActionsheet: false,
 		showBorderColorActionsheet: false,
 		showBgColorActionsheet: false,
-		showRadius: true
+		showRadius: true,
+		scale: 15,
+		location: {
+			latitude: 40.040415,
+			longitude: 116.273511
+		},
+		percent: 100
 	},
 	onClickTab (event) {
 		this.setData({
-			tabIndex: event.detail.current
+			tabIndex: event.detail.current,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	onChangeShowCallout (event) {
@@ -178,7 +188,8 @@ Page({
 	onChangeMarkerAlpha (event) {
 		const {value} = event.detail;
 		this.setData({
-			'markers[0].alpha': value
+			'markers[0].alpha': value,
+			percent: (value*100).toFixed(0)
 		});
 	},
 	onResetMarkerConfig () {
@@ -186,7 +197,13 @@ Page({
 			'markers[0]': {
 				...INIT_MARKER
 			},
-			markerImgIndex: 0
+			markerImgIndex: 0,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			},
+			percent: 100
 		});
 	},
 	onInputChange (event) {
@@ -317,14 +334,21 @@ Page({
 			'calloutMarkers[0].callout': {
 				...INIT_CALLOUT
 			},
-			calloutAlignIndex: 0,
+			calloutAlignIndex: 1,
 			calloutBorderColorIndex: 3,
 			calloutBorderWidthIndex: 1,
 			calloutPaddingIndex: 0,
-			showRadius: true
+			showRadius: true,
+			scale: 15,
+			location: {
+				latitude: 40.040415,
+				longitude: 116.273511
+			}
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

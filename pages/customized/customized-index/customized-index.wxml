@@ -1,32 +1,77 @@
-<!--pages/customized/customized.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
-    <view class="introduce">个性化地图可以定制背景面、背景线、道路、POI 四大类 44 种地图元素，让开发者随心所欲的设计地图，在 JSAPI、SDK、微信小程序中使用，地图从此不再千篇一律。</view>
-	</view>
-	<view class="feature-container">
-		<view class="feature-content border-bottom border-top" data-type="moyuan" bindtap="onWatchMap">
-			<image class="custom-img" src="{{imgs.moyuan}}"></image>
-			<view class="feature-txt">
-				墨渊<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+		<view class="introduce"><text>
+			个性化地图支持自定义编辑背景面、背景线、道路、Poi四大类52种地图元素。千行千面，助力开发者根据自身产品的使用场景、界面色调， 选取或者创建风格匹配的行业地图，体验也更胜一筹。详情可查看腾讯位置服务</text>
+			<text class="link-txt" bindtap="onShowSoluteStyle">《个性化地图解决方案》</text>
+			<view>
+				<view class="mt10 introduce-medium">新功能：个性化底图切换</view>
+				<text>小程序内地图组件应使用同一 subkey，可通过 layer-style（地图官网设置的样式 style 编号）属性选择不同的底图风格，并可以动态切换样式。</text>
 			</view>
 		</view>
-		<view class="feature-content border-bottom" data-type="baiqian" bindtap="onWatchMap">
-			<image class="custom-img" src="{{imgs.baiqian}}"></image>
-			<view class="feature-txt">
-				白浅<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+		
+	</view>
+	<view class="feature-container">
+		<view class="feature-content border-bottom border-top" data-type="wxshense" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.wxshense}}"></image>
+			<view class="feature-txt ml10">
+				<view class="flex-1">
+					<view class="feature-txt-title">微信深色</view>
+					<text>最新深色模式下的地图样式，微信深色模式发送位置同款地图，黑夜环境下的更优体验。</text>
+				</view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom" data-type="chuxing" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.chuxing}}"></image>
+			<view class="feature-txt ml10">
+				<view class="flex-1">
+					<view class="feature-txt-title">出行</view>
+					<text>适用于网约车、共享单车等行业及驾车出行场景的地图展示。打造滴滴、摩拜类应用的不二之选。</text>
+				</view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content border-bottom" data-type="danyue" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.danyue}}"></image>
+			<view class="feature-txt ml10">
+				<view class="flex-1">
+					<view class="feature-txt-title">澹月</view>
+					<text>静谧蓝做底，如恬静的月夜。适合可视化展示应用。</text>
+				</view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 			</view>
 		</view>
 		<view class="feature-content border-bottom" data-type="yulu" bindtap="onWatchMap">
 			<image class="custom-img" src="{{imgs.yulu}}"></image>
-			<view class="feature-txt">
-				玉露<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			<view class="feature-txt ml10">
+				<view class="flex-1">
+					<view class="feature-txt-title">玉露</view>
+					<text>绿色系配色，页面灵动活泼，就像一个二次元的地图世界。</text>
+				</view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 			</view>
 		</view>
-		<view class="feature-content" style="height: 56px" data-type="difuni" bindtap="onWatchMap">
-			<text class="feature-label active">自定义</text>
+		<view class="feature-content border-bottom" data-type="yancui" bindtap="onWatchMap">
+			<image class="custom-img" src="{{imgs.yancui}}"></image>
+			<view class="feature-txt ml10">
+				<view class="flex-1">
+					<view class="feature-txt-title">烟翠</view>
+					<text>深沉的灰调，柔和的色彩搭配，更能体现建筑物的立体感。</text>
+				</view>
+				<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+			</view>
+		</view>
+		<view class="feature-content">
 			<view class="feature-txt">
-				蒂芙尼<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+				<view>
+					<view class="feature-txt-title">自定义样式</view>
+					<view style="margin: 6px 0;">前往腾讯位置服务官网，选择一套个性化模板开始创建您的定制地图元素样式，实现个性化地图展示。</view>
+					<view style="display:flex;align-items:center">
+						<text class="link-txt" bindtap="onShowManageStyle">前往管理样式</text><image class="right-arrow" src="{{imgs.rightArrow}}"></image>
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
+	<copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
 </view>

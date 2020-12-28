@@ -1,0 +1,24 @@
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">
+      <view class="introduce-regular">MapContext.initMarkerCluster(Object object)</view>
+      <view class="introduce-regular">基础库 2.13.0 开始支持，低版本需做<text class="link-txt" bindtap="onShowCompatibility">兼容处理</text></view>
+      <view class="introduce-medium">初始化点聚合的配置，未调用时采用默认配置。</view>
+      <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+    </view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{location.latitude}}"
+        longitude="{{location.longitude}}"
+        scale="{{scale}}"
+        markers="{{markers}}"
+			>
+      </map>
+    </view>
+  </view>
+  <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>
+
+

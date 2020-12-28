@@ -1,4 +1,3 @@
-<!--pages/map/overlay/overlay.wxml-->
 <view class="show-map-container">
 	<!-- 导航栏组件 -->
 	<view>
@@ -9,12 +8,20 @@
     <view class="map-content {{tabIndex === 0 ? 'map-content-show' : '' }}">
 			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
 				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
-      	<map class="map" polyline="{{polyline}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+      	<map class="map" polyline="{{polyline}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}"></map>
 			</view>
 			<view class="form-panel">
 				<scroll-view scroll-y="true" style="height: 100%;">
 					<view class="feature-container pl20">
-						<view class="feature-content border-bottom" bindtap="ontriggerSelectPolylineColor">
+						<view class="feature-content border-bottom">
+							<text class="feature-label">线条类型</text>
+							<view class="feature-txt">
+								<view class="feature-txt-item" bindtap="onSelectPolylineType" data-index="{{index}}" wx:for="{{polylineType}}" wx:key="index">
+									<txt class="align-img {{index === polylineTypeIndex ? 'fontsize-active': ''}}">{{item.name}}</txt>
+								</view>
+							</view>
+						</view>
+						<view class="feature-content border-bottom" hidden="{{polylineTypeIndex === 2}}" bindtap="ontriggerSelectPolylineColor">
 							<text class="feature-label">线条颜色</text>
 							<view class="feature-txt">
 								<image class="bordercolor-icon" src="{{polylineColorMap[polyline[0].color]}}"></image>
@@ -30,24 +37,6 @@
 								</view>
 							</view>
 						</view>
-						<view class="feature-content border-bottom">
-							<text class="feature-label">虚线</text>
-							<switch
-								class="feature-switch"
-								color="#3875FF"
-								checked="{{polyline[0].dottedLine}}"
-								bindchange="onChangeShowDotted">
-							</switch>
-						</view>
-						<!-- <view class="feature-content border-bottom">
-							<text class="feature-label">箭头图标</text>
-							<view class="feature-txt">
-								<view class="feature-txt-item" bindtap="onSelectPolylineArrow" data-index="{{index}}" wx:for="{{arrowImgs}}">
-									<image hidden="{{index === polylineArrowIndex}}" class="align-img" src="{{item.normal}}"></image>
-									<image hidden="{{index !== polylineArrowIndex}}" class="align-img" src="{{item.active}}"></image>
-								</view>
-							</view>
-						</view> -->
 						<view class="feature-content" bindtap="ontriggerSelectPolylineBorderColor">
 							<text class="feature-label">线条描边颜色</text>
 							<view class="feature-txt">
@@ -65,7 +54,7 @@
     <view class="map-content {{tabIndex === 1 ? 'map-content-show' : '' }}">
 			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
 				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
-      	<map class="map" polygons="{{polygons}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+      	<map class="map" polygons="{{polygons}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}"></map>
 			</view>
 			<view class="form-panel">
 				<scroll-view scroll-y="true" style="height: 100%;">
@@ -103,7 +92,7 @@
 		<view class="map-content {{tabIndex === 2 ? 'map-content-show' : '' }}">
 			<view class="map-panel pl20 pr20" hover-class="none" hover-stop-propagation="false">
 				<view class="introduce">此示例展示在地图上绘制覆盖物（线、多边形、圆）效果，并对其相关参数进行设置，实现不同效果。</view>
-      	<map class="map" circles="{{circles}}" latitude="40.040415" longitude="116.273511" scale="15"></map>
+      	<map class="map" circles="{{circles}}" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}"></map>
 			</view>
 			<view class="form-panel">
 				<scroll-view scroll-y="true" style="height: 100%;">
@@ -111,7 +100,7 @@
 						<view class="feature-content border-bottom" bindtap="ontriggerSelectCircleBgColor">
 							<text class="feature-label">填充颜色</text>
 							<view class="feature-txt">
-								<view wx:if="{{circles[0].fillColor}}" class="{{'bg-icon ' + (circles[0].fillColor === '#ffffff' ? 'bg-icon-border' : '')}}" style="{{'background-color:' + (circles[0].fillColor)}}"></view><text wx:else style="color: #222">无</text>
+								<view wx:if="{{circles[0].fillColor}}" class="{{'bg-icon ' + (circles[0].fillColor === '#ffffff' ? 'bg-icon-border' : '')}}" style="{{'background-color:' + (circles[0].fillColor)}}"></view><text wx:else style="color: #222">默认颜色</text>
 								<image class="right-arrow" src="{{imgs.rightArrow}}"></image>
 							</view>
 						</view>

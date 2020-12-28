@@ -1,4 +1,3 @@
-// pages/map-control/map-control.js
 Page({
 
 	/**
@@ -48,6 +47,8 @@ Page({
 		});
 	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

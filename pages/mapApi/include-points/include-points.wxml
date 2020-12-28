@@ -1,0 +1,29 @@
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">
+      <view class="introduce-regular">MapContext.includePoints(Object object)</view>
+      <view class="introduce-regular">基础库 1.2.0 开始支持，低版本需做<text class="link-txt" bindtap="onShowCompatibility">兼容处理</text></view>
+      <view class="introduce-medium">缩放视野展示所有经纬度。</view>
+      <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+    </view>
+    <view class="map-container plr20">
+			<map
+				class="map"
+				id="map"
+				latitude="{{setting.latitude}}"
+        longitude="{setting.longitude}}"
+        markers="{{markers}}"
+        scale="{{seting.scale}}"
+        setting="{{setting}}"
+        enable-zoom="{{false}}"
+        enable-scroll="{{false}}"
+			>
+      </map>
+    </view>
+  </view>
+  <view class="primary-btn mt30 mb20 {{isDisabled ? 'is-disabled' : ''}}" bindtap="onRunApi">
+    {{btnTxt}}
+  </view>
+  <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>
+

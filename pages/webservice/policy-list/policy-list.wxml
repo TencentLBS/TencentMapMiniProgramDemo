@@ -1,4 +1,3 @@
-<!--pages/webservice/policy-list/policy-list.wxml-->
 <view class="policy-container" hover-class="none" hover-stop-propagation="false">
 	<view
 		class="pl20 border-bottom policy-item"

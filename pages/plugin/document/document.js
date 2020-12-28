@@ -1,4 +1,3 @@
-// pages/plugin/document/document.js
 Page({
 
 	data: {
@@ -8,7 +7,7 @@ Page({
 				{
 				&emsp;"plugins": {
 				&emsp;&emsp;"routePlan": {
-				&emsp;&emsp;&emsp;"version": "1.0.5",
+				&emsp;&emsp;&emsp;"version": "1.0.11",
 				&emsp;&emsp;&emsp;"provider": "wx50b5593e81dd937a"
 				&emsp;&emsp;}
 				&emsp;}
@@ -39,7 +38,7 @@ Page({
 				{
 				&emsp;"plugins": {
 				&emsp;&emsp;"chooseLocation": {
-				&emsp;&emsp;&emsp;"version": "1.0.2",
+				&emsp;&emsp;&emsp;"version": "1.0.5",
 				&emsp;&emsp;&emsp;"provider": "wx76a9a06e5b4e693e"
 				&emsp;&emsp;}
 				&emsp;}
@@ -68,7 +67,7 @@ Page({
 				{
 				&emsp;"plugins": {
 				&emsp;&emsp;"subway": {
-				&emsp;&emsp;&emsp;"version": "1.0.4",
+				&emsp;&emsp;&emsp;"version": "1.0.9",
 				&emsp;&emsp;&emsp;"provider": "wx6aaf93c4435fa1c1"
 				&emsp;&emsp;}
 				&emsp;}
@@ -91,7 +90,9 @@ Page({
 			}
 		},
 		currentPlugin: 'routePlan',
-		dialogShow: false
+		dialogShow: false,
+		docDialogShow: false,
+		link: 'https://lbs.qq.com/miniProgram/plugin/pluginGuide/pluginStart?adtag=wx.slzx.cj'
 	},
 
 	onLoad: function (options) {
@@ -100,20 +101,39 @@ Page({
 			currentPlugin: type
 		});
 	},
-
-	onWatchLink () {
-		this.setData({
-			dialogShow: true
-		});
-	},
-
 	onDialogClose () {
 		this.setData({
 			dialogShow: false
 		});
 	},
-
+	onDocDialogClose () {
+		this.setData({
+			docDialogShow: false
+		});
+	},
+	onWatchLink () {
+		this.setData({
+			dialogShow: true
+		});
+	},
+	onShowDoc () {
+		this.setData({
+			docDialogShow: true,
+		});
+	},
+	onDialogClose () {
+		this.setData({
+			dialogShow: false
+		});
+	},
+	onDocDialogClose () {
+		this.setData({
+			docDialogShow: false
+		});
+	},
 	onShareAppMessage: function () {
-
+		return {
+			title: '腾讯位置服务示例中心'
+		};
 	}
 });

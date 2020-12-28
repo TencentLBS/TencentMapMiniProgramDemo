@@ -1,0 +1,22 @@
+
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+}
+.map-view-content {
+  width: 100%;
+  background: #FFF;
+  padding:20px 0 20px;
+  margin-top: 10px; 
+}
+.map {
+  width:100%;
+  height:400px;
+  position: relative;
+}
+
+

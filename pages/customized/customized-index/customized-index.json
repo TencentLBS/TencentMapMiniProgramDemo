@@ -1,6 +1,7 @@
 {
-  "usingComponents":  {
-
+  "usingComponents": {
+		"mp-dialog": "../../../components/dialog/dialog",
+		"copy-dialog": "../../../components/copy-dialog/copy-dialog"
 	},
 	"navigationBarTitleText": "个性化地图"
 }
