@@ -1,3 +1,4 @@
+// pages/webservice/policy-list/policy-list.js
 Page({
 	data: {
 		policyList: []

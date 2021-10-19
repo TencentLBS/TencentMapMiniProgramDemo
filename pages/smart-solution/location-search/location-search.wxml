@@ -1,0 +1,18 @@
+<view class="location-search-container smart-solution">
+  <map 
+  id="map-container" 
+  latitude="{{location.lat}}" 
+  longitude="{{location.lng}}"
+  markers="{{markers}}"
+  show-location>
+  </map>
+  <view class="poi-container">
+    <view data-type="start" bindtap="onSearchPoi" class="feature-content border-bottom">
+        {{start.title}}
+      </view>
+      <view data-type="end" bindtap="onSearchPoi" class="feature-content">
+        <view wx:if="{{end.title}}">{{end.title}}</view>
+        <view class="end-placeholder" wx:if="{{!end.title}}">您要去哪儿</view>
+      </view>
+    </view>
+</view>

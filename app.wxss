@@ -33,7 +33,7 @@ page {
   height: 56px;
   display: flex;
 	justify-content: space-between;
-  line-height: 56px;
+	line-height: 56px;
 }
 
 .feature-label {
@@ -165,4 +165,16 @@ page {
 }
 .flex-1 {
 	flex: 1;
+}
+/* 出行解决方案公共样式 */
+.smart-solution {
+  height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#map-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
 }

@@ -1,0 +1,51 @@
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce">腾讯位置服务城市选择器插件可以让用户快速、准确地选择城市，并将城市信息回传给开发者。我们的插件提供单页模式和组件模式两种形式，并支持搜索和索引等功能。</view>
+	</view>
+	<view class="feature-container">
+		<view class="feature-content border-bottom border-top">
+			<text class="feature-label">模式</text>
+			<view class="feature-txt">
+        <view class="feature-txt">
+          <view class="feature-txt-item" bindtap="onSelectType" data-index="{{index}}" wx:for="{{type}}" wx:key="index">
+            <txt class="align-img {{index === typeIndex ? 'fontsize-active': ''}}">{{item.name}}</txt>
+          </view>
+        </view>
+      </view>
+		</view>
+		<view class="feature-content border-bottom">
+			<text class="feature-label">当前选择城市</text>
+			<view class="feature-txt" hidden="{{typeIndex === 1}}">
+        {{pluginSelectedCity}}
+			</view>
+      <view class="feature-txt" hidden="{{typeIndex === 0}}">
+        {{componentSelectedCity}}
+			</view>
+		</view>
+	</view>
+  <selector-component
+    show="{{selectorVisible}}"
+    key="{{key}}"
+    referer="{{referer}}"
+    hotCitys="{{hotCitys}}"
+    bindselect="onSelectCity"
+  ></selector-component>
+  <view class="primary-btn mt30" bindtap="onWatchDemo">
+    查看示例
+	</view>
+	<view class="doc-btn mt20 mb20" bindtap="onWatchDoc">
+		查看接入文档
+	</view>
+	<mp-actionsheet
+		bindactiontap="onSelectCustom"
+		ext-class="custom-actionsheet"
+		show="{{showCustomActionsheet}}"
+		actions="{{customStyles}}">
+	</mp-actionsheet>
+	<copy-dialog
+		show="{{dialogShow}}"
+		link="{{link}}"
+		bindclose="onDialogClose">
+	</copy-dialog>
+</view>
+

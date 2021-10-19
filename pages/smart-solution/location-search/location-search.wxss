@@ -1,0 +1,25 @@
+
+/* .location-search-container {
+  height: 100vh;
+  width: 100%;
+}
+#map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+} */
+.poi-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 0 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 0 rgba(18, 29, 49, 0.05);
+  z-index: 1;
+}
+.end-placeholder {
+  color: #999;
+}

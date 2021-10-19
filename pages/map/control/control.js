@@ -1,3 +1,4 @@
+// pages/map-control/map-control.js
 Page({
 
 	/**

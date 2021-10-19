@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "selector-component": "plugin://citySelector/selector-component"
+	},
+	"navigationBarTitleText": "城市选择器"
+}

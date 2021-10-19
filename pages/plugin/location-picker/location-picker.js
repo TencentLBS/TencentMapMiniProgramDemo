@@ -1,3 +1,4 @@
+// pages/plugin/location-picker/location.js
 import {CDN_PATH, MOYUAN_KEY, BAIQIAN_KEY, YULU_KEY, DIFUNI_KEY, REFERER} from '../../../config/appConfig';
 Page({
 	data: {
@@ -70,6 +71,10 @@ Page({
 		const scale = this.data.scale;
 		if (scale < 3 || scale > 20) {
 			this._showToast('请您输入正确的缩放级别');
+			return;
+		}
+		if (!key || !referer) {
+			console.error('请输入有效的key和referer');
 			return;
 		}
 		let url = 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&scale=' + scale;

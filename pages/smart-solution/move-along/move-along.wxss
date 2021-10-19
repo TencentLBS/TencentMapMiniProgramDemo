@@ -1,0 +1,5 @@
+/* pages/smart-solution/move-along/move-along.wxss */
+.is-disabled {
+  background: rgba(17, 17, 17, 0.1);
+  color: rgba(34, 34, 34, 0.3)
+  }

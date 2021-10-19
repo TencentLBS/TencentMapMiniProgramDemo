@@ -1,3 +1,4 @@
+<!--pages/customized/customized.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
 		<view class="introduce"><text>

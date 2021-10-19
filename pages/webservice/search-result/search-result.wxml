@@ -23,7 +23,6 @@
       </view>
     </view>
     <view class="result-content p20 {{tabList[1].show ? 'show-content' : '' }}">
-      <!-- <rich-text nodes="{{requestJson}}"></rich-text> -->
       <text class="page-code" decode="true">{{requestJson}}</text>
     </view>
     <view class="result-content {{tabList[2].show ? 'show-content' : '' }}">

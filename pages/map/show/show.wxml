@@ -1,3 +1,4 @@
+<!--pages/show-map/show-map.wxml-->
 <view class="show-map-container">
   <!-- 导航栏组件 -->
   <tab tabList="{{tabList}}" bind:clickTab="clickTab"/>

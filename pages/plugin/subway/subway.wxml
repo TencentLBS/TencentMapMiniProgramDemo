@@ -1,3 +1,4 @@
+<!--pages/plugin/subway/subway.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
     <view class="introduce">地铁图插件 提供城市地铁图等功能，展示静态的城市地铁线路以及站点信息、提供地铁线路检索、查找最近定位站点信息、站点详情查看等功能。开发者可以将城市地铁图嵌入到自建小程序的页面里，实现地铁图功能。</view>

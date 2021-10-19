@@ -1,0 +1,10 @@
+/* pages/car-solution/nearby-car/nearby-car.wxss */
+.recommend-station-marker {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -60px;
+  height: 60px;
+  width: 35px;
+}

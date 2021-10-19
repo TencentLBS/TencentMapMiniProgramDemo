@@ -1,3 +1,4 @@
+<!--pages/customized/customized-map/customized-map.wxml-->
 <view class="map-view-container">
 	<view class="custom-intro">
 		<view style='font-size: 14pt;margin:10px 20px;'>

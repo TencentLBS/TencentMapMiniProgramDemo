@@ -1,3 +1,4 @@
+// pages/show-map/show-map.js
 import {INDOOR_KEY} from '../../../config/appConfig';
 Page({
 
@@ -26,6 +27,11 @@ Page({
 		isRealTraffic: false,
 		isShowPoi: false,
 		key: INDOOR_KEY
+	},
+	onLoad: function () {
+		if (!INDOOR_KEY) {
+			console.error('请传入有效的key');
+		}
 	},
 	clickTab (event) {
 		const id = event.detail.current,list = this.data.tabList;

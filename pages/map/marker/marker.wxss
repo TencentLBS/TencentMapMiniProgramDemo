@@ -1,3 +1,4 @@
+/* pages/map/marker/marker.wxss */
 .show-map-container {
   display: flex;
   flex-direction: column;

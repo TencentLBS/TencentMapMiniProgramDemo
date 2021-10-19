@@ -1,3 +1,4 @@
+<!--pages/plugin/document/document.wxml-->
 <view class="document">
 	<view class="page-h">
 		1. 入驻腾讯位置服务平台

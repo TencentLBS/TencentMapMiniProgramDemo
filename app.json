@@ -21,9 +21,14 @@
     "pages/mapApi/include-points/include-points",
     "pages/mapApi/move-along/move-along",
     "pages/mapApi/translate-marker/translate-marker",
-    "pages/mapApi/add-ground-overlay/add-ground-overlay",
     "pages/mapApi/open-map-app/open-map-app",
-    "pages/mapApi/init-marker-cluster/init-marker-cluster"
+    "pages/mapApi/init-marker-cluster/init-marker-cluster",
+    "pages/smart-solution/nearby-car/nearby-car",
+    "pages/smart-solution/recommend-station/recommend-station",
+    "pages/smart-solution/location-search/location-search",
+    "pages/smart-solution/suggest/suggest",
+    "pages/smart-solution/move-along/move-along",
+    "pages/plugin/city-select/city-select"
   ],
   "permission": {
     "scope.userLocation": {
@@ -32,16 +37,20 @@
   },
   "plugins": {
     "routePlan": {
-      "version": "1.0.11",
+      "version": "1.0.13",
       "provider": "wx50b5593e81dd937a"
     },
     "chooseLocation": {
-      "version": "1.0.5",
+      "version": "1.0.6",
       "provider": "wx76a9a06e5b4e693e"
     },
     "subway": {
-      "version": "1.0.9",
+      "version": "1.0.10",
       "provider": "wx6aaf93c4435fa1c1"
+    },
+    "citySelector": {
+      "version": "1.0.0",
+      "provider": "wx63ffb7b7894e99ae"
     }
   },
   "window": {

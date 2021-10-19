@@ -1,3 +1,4 @@
+// pages/customized/customized-map/customized-map.js
 import {CUSTOM_KEY} from '../../../config/appConfig';
 const STYLE_MAP = {
 	wxshense: 1,
@@ -21,6 +22,9 @@ Page({
 		style: 1
 	},
 	onLoad: function (options) {
+		if (!CUSTOM_KEY) {
+			console.error('请输入有效的key');
+		}
 		const {type} = options;
 		this.setData({
 			mapShow: true,

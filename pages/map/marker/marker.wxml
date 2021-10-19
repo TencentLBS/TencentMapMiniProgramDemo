@@ -1,3 +1,4 @@
+<!--pages/map/marker/marker.wxml-->
 <view class="show-map-container">
 	<!-- 导航栏组件 -->
 	<view>
@@ -44,7 +45,6 @@
 						<view class="feature-content">
 							<text class="feature-label">透明度</text>
 							<view class="feature-txt" style="color: #222">
-								<!-- {{markers[0].alpha * 100}}% -->
 								{{percent}}%
 							</view>
 						</view>
@@ -95,15 +95,6 @@
 								</view>
 							</view>
 						</view>
-						<!-- <view class="feature-content border-bottom">
-							<text class="feature-label">对齐方式</text>
-							<view class="feature-txt">
-								<view class="feature-txt-item" bindtap="onSelectAlign" data-index="{{index}}" wx:for="{{calloutAligns}}">
-									<image hidden="{{index === calloutAlignIndex}}" class="align-img" src="{{item.normal}}"></image>
-									<image hidden="{{index !== calloutAlignIndex}}" class="align-img" src="{{item.active}}"></image>
-								</view>
-							</view>
-						</view> -->
 						<view class="feature-content border-bottom">
 							<text class="feature-label">边框圆角</text>
 							<switch class="feature-switch" color="#3875FF" checked="{{showRadius}}" bindchange="onChangeShowRadius"></switch>

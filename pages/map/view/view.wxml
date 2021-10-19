@@ -1,3 +1,4 @@
+<!--pages/map-view/map-view.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
     <view class="introduce plr20">此示例展示地图视野控制能力，包含缩放、平移、旋转、俯视等能力。</view>

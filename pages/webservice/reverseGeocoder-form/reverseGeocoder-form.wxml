@@ -11,11 +11,6 @@
 				scale="16"
 				bindregionchange="onChangeRegion"
 			>
-				<!-- <cover-image
-					class="locationpicker-ic-marker {{animation ? 'locationpicker-animation' : ''}}"
-					src="./img/Big_Marker@2x.png"
-					bindanimationend="onMarkerAnimationend"
-				/> -->
 				<view class="locationpicker-ic-marker {{animation ? 'locationpicker-animation' : ''}}"
 					bindanimationend="onMarkerAnimationend">
 					<image class="locationpicker-img" src="./img/Big_Marker@2x.png"></image>

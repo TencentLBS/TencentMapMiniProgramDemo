@@ -1,3 +1,4 @@
+/* pages/mapApi/include-points/include-points.wxss */
 .map-view-container {
   display: flex;
   flex-direction: column;

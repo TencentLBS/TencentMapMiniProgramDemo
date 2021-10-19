@@ -1,3 +1,4 @@
+/* pages/customized/customized.wxss */
 .map-view-container {
   display: flex;
   flex-direction: column;

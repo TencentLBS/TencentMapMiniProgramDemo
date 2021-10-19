@@ -1,3 +1,4 @@
+/* pages/plugin/document/document.wxss */
 .document {
 	padding: 30px 20px;
 	background: #F8F8F7;

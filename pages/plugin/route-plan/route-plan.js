@@ -1,3 +1,4 @@
+// pages/plugin/route-plan.js
 import {CDN_PATH, MOYUAN_KEY, BAIQIAN_KEY, YULU_KEY, DIFUNI_KEY, REFERER} from '../../../config/appConfig';
 const chooseLocation = requirePlugin('chooseLocation');
 
@@ -53,13 +54,17 @@ Page({
 	},
 	onUnload () {
 		chooseLocation.setLocation(null);
-	}, 
+	},
 	onChooseStartPoint () {
 		const key = this.data.customStyles[this.data.keyIndex].value;
 		this.setData({
 			chooseType: 'start'
 		});
 		chooseLocation.setLocation(null);
+		if (!key || !REFERER) {
+			console.error('请输入有效的key和referer');
+			return;
+		}
 		const url = 'plugin://chooseLocation/index?key=' + key + '&referer=' + REFERER;
 		wx.navigateTo({
 			url
@@ -71,6 +76,10 @@ Page({
 			chooseType: 'end'
 		});
 		chooseLocation.setLocation(null);
+		if (!key || !REFERER) {
+			console.error('请输入有效的key和referer');
+			return;
+		}
 		const url = 'plugin://chooseLocation/index?key=' + key + '&referer=' + REFERER;
 		wx.navigateTo({
 			url
@@ -113,6 +122,10 @@ Page({
 		const startPoint = this.data.startPoint ? JSON.stringify(this.data.startPoint) : '';
 		const mode = this.data.modes[this.data.modeIndex].value;
 		const navigation = this.data.isNavigate ? 1 : 0;
+		if (!key || !referer) {
+			console.error('请输入有效的key和referer');
+			return;
+		}
 		let url = 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint +
 		'&mode=' + mode + '&navigation=' + navigation + '&themeColor=' + this.data.themeColor;
 		if (startPoint) {
@@ -144,7 +157,6 @@ Page({
 	},
 	onSelectThemeColor (event) {
 		const {value} = event.detail;
-		console.log(event.detail);
 		this.setData({
 			themeColor: value,
 			showThemeColorActionsheet: false

@@ -1,3 +1,4 @@
+// pages/plugin/document/document.js
 Page({
 
 	data: {
@@ -87,7 +88,33 @@ Page({
 				&emsp;url: 'plugin://subway/index?key=' + key + '&referer=' + \nreferer
 				});`,
 				link: 'https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx6aaf93c4435fa1c1'
-			}
+			},
+			citySelect: {
+				app: `城市选择器 appid：wx63ffb7b7894e99ae\n// app.json
+				{
+				&emsp;"plugins": {
+				&emsp;&emsp;"subway": {
+				&emsp;&emsp;&emsp;"version": "1.0.0",
+				&emsp;&emsp;&emsp;"provider": "wx63ffb7b7894e99ae"
+				&emsp;&emsp;}
+				&emsp;}
+				}`,
+				location: `城市选择器插件需要小程序提供定位授权才能够正常使用定位功能：\n// app.json
+				{
+				&emsp;"permission": {
+				&emsp;&emsp;"scope.userLocation": {
+				&emsp;&emsp;&emsp;"desc": "你的位置信息将用于小程序定位"
+				&emsp;&emsp;}
+				&emsp;}
+				}`,
+				code: `插件页面调用示例：\n	const plugin = requirePlugin('citySelector');
+				const key = ''; //使用在腾讯位置服务申请的key
+				const referer = ''; //调用插件的app的名称
+				wx.navigateTo({
+				&emsp;url: 'plugin://citySelector/index?key=' + key + '&referer=' + \nreferer
+				});`,
+				link: 'https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx63ffb7b7894e99ae'
+			},
 		},
 		currentPlugin: 'routePlan',
 		dialogShow: false,

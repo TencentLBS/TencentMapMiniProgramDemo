@@ -1,0 +1,55 @@
+<!--plugin/pages/search/search.wxml-->
+<view class='locationpicker-search-sd-location' style="padding-top: {{totalBarHeight}}px;">
+  <header title="{{title}}" bind:totalBarHeight="onGetTotalBarHeight" />
+
+  <view class='locationpicker-search-sd-location-content'>
+    <!-- 搜索框 -->
+    <view class="locationpicker-search-content locationpicker-search-flex">
+      <view bindtap="onChooseCity" class="search-city">
+        {{city.name}}
+      </view>
+      <input class='locationpicker-search-content-ipt' type='text' placeholder="搜索地点" bindinput="onInputChange"
+        value="{{searchValue}}" auto-focus="{{true}}" confirm-type="search" focus="{{searchFocus}}">
+      </input>
+      <view class="locationpicker-search-clear" hidden="{{!inputChangeShow}}" bindtap='onClearInput'>
+        取消
+      </view>
+    </view>
+    <view class='locationpicker-search-line'></view>
+    <!-- 搜索正常 -->
+    <view class="locationpicker-search-result">
+      <!-- sug搜索 -->
+      <view wx-if="{{searchContentShow === 'suggestion'}}" wx:for="{{suggestionData}}" wx:key="{{index}}">
+        <view class='locationpicker-search-list-item' bindtap='onClickListItem' data-sugIndex="{{index}}">
+          <view class="locationpicker-search-list-item-content">
+            <view class='locationpicker-search-name'>{{item.title}}</view>
+            <view class='locationpicker-search-address' wx-if='{{item.type !==1 && item.type !==2}}'>
+              {{item.address}}</view>
+            <view class='locationpicker-search-address locationpicker-search-bus' wx-if='{{item.type ===1}}'>
+              {{item.city+item.district+item.address}}
+            </view>
+            <view class='locationpicker-search-address' wx-if='{{item.type ===2}}'>
+              <view class='locationpicker-search-subway' wx:for='{{item.address}}' wx:for-item="subway" wx:key=''>
+                {{subway}}</view>
+            </view>
+            <view class="locationpicker-search-subs-list" wx:if='{{item.subPois}}'>
+              <view class='locationpicker-search-subPois locationpicker-search-subs-list-item'
+                wx:for='{{item.subArray}}' wx:for-item="subPois" wx:for-index="subListIndex" wx:key='subListIndex'>
+                <view class='locationpicker-search-subPoi-title' data-subPoi='{{subPoi}}' wx:for='{{subPois}}'
+                  wx:for-index="subIndex" wx:for-item="subPoi" wx:key='subIndex' catchtap='onClickSubPoi'>
+                  {{subPoi.title}}
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 搜索异常 -->
+    <view class='locationpicker-search-empty' wx-if="{{searchContentShow === 'empty'}}">没有找到匹配的结果</view>
+  </view>
+
+</view>

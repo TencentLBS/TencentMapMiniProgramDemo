@@ -1,3 +1,4 @@
+<!--pages/map/overlay/overlay.wxml-->
 <view class="show-map-container">
 	<!-- 导航栏组件 -->
 	<view>

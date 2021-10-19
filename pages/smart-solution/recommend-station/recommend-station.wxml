@@ -1,0 +1,26 @@
+<view class="recommend-station-container smart-solution">
+  <map 
+  id="map-container" 
+  latitude="{{location.latitude}}"
+  longitude="{{location.longitude}}"
+  scale="14"
+  show-location
+  markers="{{markers}}"
+  polygons="{{polygon}}"
+  bindregionchange="onChangeCenter">
+    <image class="recommend-station-marker" src="{{marker}}"></image>
+  </map>
+  <picker-view 
+  class="fence-picker"
+  wx:if="{{selectList.length > 0}}" 
+  indicator-style="height: 50px;" 
+  value="{{selectIndex}}" 
+  bindchange="onChangeFence">
+    <picker-view-column>
+      <view 
+        class="fence-picker-item"
+        wx:for="{{selectList}}" 
+        wx:key="{{item.id}}">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

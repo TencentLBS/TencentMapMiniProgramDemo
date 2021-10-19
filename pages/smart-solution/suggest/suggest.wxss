@@ -1,0 +1,122 @@
+/* plugin/pages/search/search.wxss */
+page {
+	background: #fff !important;
+}
+.locationpicker-search-sd-location {
+  font-size: 15px;
+  background: #fff !important;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.locationpicker-search-sd-location-content {
+  background: #fff;
+  padding-top: 10px;
+}
+.locationpicker-search-content {
+  height: 42px;
+  margin: 0 14px 10px 14px;
+  border-radius: 7px;
+}
+.locationpicker-search-result {
+  padding-bottom: 45px;
+}
+.locationpicker-search-content-icon {
+  width: 38px;
+  height: 38px;
+  margin: 2px 0;
+}
+.search-city {
+  width: 60px;
+  line-height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.locationpicker-search-content-ipt {
+  height: 42px;
+  flex: 1;
+  background: #EFEFEF;
+  padding-left: 10px;
+}
+.locationpicker-search-clear {
+  width: 33px;
+  height: 43px;
+  line-height: 43px;
+  text-align: center;
+  margin-left: 10px;
+}
+.locationpicker-search-empty {
+  margin-top: 20px;
+  text-align: center;
+}
+.locationpicker-search-flex {
+  display: flex;
+  justify-content: space-around;
+}
+.locationpicker-search-line {
+  width: 100%;
+  height: 1px;
+  background: #EFEFEF;
+}
+.locationpicker-search-list-item {
+  padding: 10px 20px 0 20px;
+}
+.locationpicker-search-name {
+  margin-bottom: 5px;
+}
+.locationpicker-search-address {
+  width: 90%;
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0;
+  line-height: 1.4;
+  word-break: break-all;
+}
+.locationpicker-search-item-address {
+  margin: 12px 0 6px 26px;
+}
+.locationpicker-search-subPois {
+  border-radius: 15px;
+  font-size: 12px;
+  color: #666666;
+  letter-spacing: 0;
+  margin: 6px 0;
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+  line-height: 30px;
+}
+.locationpicker-search-subPoi-title {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 25%;
+  border: 1px solid #666666;
+  border-radius: 2px;
+}
+.locationpicker-search-bus {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.locationpicker-search-subway {
+  background: #427CFF;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  display: inline;
+  padding: 2px 11px;
+  margin-right: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.locationpicker-search-list-item-content {
+  padding:  8px 0 18px 0;
+  border-bottom: 1px solid #EFEFEF;
+}

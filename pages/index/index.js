@@ -1,3 +1,4 @@
+//index.js
 import {CDN_PATH, COS_PATH} from '../../config/appConfig';
 Page({
 	data: {
@@ -12,7 +13,7 @@ Page({
 				id: 'map',
 				name: 'Map 组件',
 				open: false,
-				img: `${CDN_PATH}/iconMapmodule@3x.png?cache=0`,
+        img: `${CDN_PATH}/iconMapmodule@3x.png?cache=0`,
 				pages: [{
 					name: '地图显示',
 					url: '../map/show/show',
@@ -37,7 +38,7 @@ Page({
 				id: 'mapApi',
 				name: 'Map API',
 				open: false,
-				img: `${COS_PATH}/iconMapapi@3x.png?cache=0`,
+        img: `${COS_PATH}/iconMapapi@3x.png?cache=0`,
 				pages: [{
 					name: 'includePoints',
 					url: '../mapApi/include-points/include-points'
@@ -47,10 +48,8 @@ Page({
 				},{
 					name: 'translateMarker',
 					url: '../mapApi/translate-marker/translate-marker'
-				},{
-					name: 'addGroundOverlay',
-					url: '../mapApi/add-ground-overlay/add-ground-overlay'
-				},{
+				},
+				{
 					name: 'initMarkerCluster',
 					url: '../mapApi/init-marker-cluster/init-marker-cluster'
 				},{
@@ -62,7 +61,7 @@ Page({
 				id: 'plugin',
 				name: '小程序插件',
 				open: false,
-				img: `${CDN_PATH}/iconMiniprogram@3x.png?cache=0`,
+        img: `${CDN_PATH}/iconMiniprogram@3x.png?cache=0`,
 				pages: [{
 					name: '路线规划插件',
 					url: '../plugin/route-plan/route-plan'
@@ -72,6 +71,9 @@ Page({
 				},{
 					name: '地铁图插件',
 					url: '../plugin/subway/subway'
+				},{
+					name: '城市选择器插件',
+					url: '../plugin/city-select/city-select'
 				}]
 			},
 			{
@@ -79,20 +81,39 @@ Page({
 				name: '个性化地图',
 				open: false,
 				url: '../customized/customized-index/customized-index',
-				img: `${CDN_PATH}/iconMap@3x.png?cache=0`,
+        img: `${CDN_PATH}/iconMap@3x.png?cache=0`,
 				pages: []
 			},
 			{
 				id: 'webservice',
 				name: '接口能力',
 				open: false,
-				img: `${CDN_PATH}/iconPort@3x.png?cache=0`,
+        img: `${CDN_PATH}/iconPort@3x.png?cache=0`,
 				pages: [{
 					name: '逆地址解析',
 					url: '../webservice/reverseGeocoder-form/reverseGeocoder-form'
 				},{
 					name: '地点搜索',
 					url: '../webservice/search-form/search-form'
+				}]
+			},
+			{
+				id: 'smartSolution',
+				name: '出行解决方案',
+				open: false,
+        img: `${COS_PATH}/index_smartSolution@2x.png?cache=0`,
+				pages: [{
+					name: '周边车辆',
+					url: '../smart-solution/nearby-car/nearby-car'
+				},{
+					name: '推荐上车点',
+					url: '../smart-solution/recommend-station/recommend-station'
+				},{
+					name: '地点检索',
+					url: '../smart-solution/location-search/location-search'
+				},{
+					name: '司乘同显-乘客端',
+					url: '../smart-solution/move-along/move-along'
 				}]
 			}
 		],

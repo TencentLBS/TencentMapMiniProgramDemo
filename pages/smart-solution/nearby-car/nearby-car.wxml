@@ -1,0 +1,11 @@
+<view class="nearby-car-container smart-solution">
+  <map 
+  id="map-container" 
+  latitude="{{location.latitude}}" 
+  longitude="{{location.longitude}}" 
+  show-location
+  bindregionchange="onChangeCenter"
+  markers="{{cars}}">
+    <image class="recommend-station-marker" src="{{marker}}"></image>
+  </map>
+</view>

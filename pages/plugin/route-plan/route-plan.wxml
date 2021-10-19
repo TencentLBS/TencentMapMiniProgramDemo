@@ -1,3 +1,4 @@
+<!--pages/plugin/route-plan.wxml-->
 <view class="map-view-container">
   <view class="map-view-content">
     <view class="introduce">腾讯位置服务路线规划插件提供路线规划等功能，根据起终点，多种出行方式智能规划最佳出行路线及详情。开发者可以将路线规划插件嵌入到自建小程序的页面里，实现路线规划功能。</view>

@@ -1,11 +1,15 @@
+// pages/map/event/event.js
 import {
 	CDN_PATH,
 	PLUGIN_KEY
 } from '../../../config/appConfig';
-const QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js');
-const qqmapsdk = new QQMapWX({
-	key: PLUGIN_KEY // 必填
-});
+if (PLUGIN_KEY) {
+	const QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js');
+	const qqmapsdk = new QQMapWX({
+		key: PLUGIN_KEY // 必填
+	});
+}
+
 Page({
 
 	/**
@@ -48,6 +52,10 @@ Page({
 	},
 	// 标注点击回调
 	onTapMarker (event) {
+		if (!PLUGIN_KEY) {
+			console.error('请传入有效的key');
+			return;
+		}
 		const markers = this.data.markers;
 		for (let i = 0; i < markers.length; i++) { // 本示例只有一个marker，可用于处理单marker和多marker情况
 			if (event.markerId === markers[i].id) {

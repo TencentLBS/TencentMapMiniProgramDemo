@@ -1,3 +1,4 @@
+/* pages/show-map/show-map.wxss */
 .show-map-container {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,6 @@
   position: relative;
 }
 .map-content {
-  /* display:none; */
   background: #FFF;
   position: absolute;
   z-index: 1;
@@ -22,7 +22,6 @@
 }
 .map-content-show {
   height: auto;
-  /* display: block; */
   z-index: 2;
   opacity: 1;
   transition: 0.3s;

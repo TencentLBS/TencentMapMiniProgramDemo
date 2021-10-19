@@ -1,3 +1,4 @@
+/* pages/map-control/map-control.wxss */
 .map-control-container {
   display: flex;
   flex-direction: column;

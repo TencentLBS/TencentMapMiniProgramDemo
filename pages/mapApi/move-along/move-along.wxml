@@ -15,8 +15,7 @@
         markers="{{markers}}"
         polyline="{{polyline}}"
         scale="{{scale}}"
-        enable-zoom="{{false}}"
-        enable-scroll="{{false}}"
+
 			>
       </map>
     </view>

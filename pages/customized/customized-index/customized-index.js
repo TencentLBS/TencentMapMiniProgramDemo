@@ -1,3 +1,4 @@
+// pages/customized/customized.js
 import {CDN_PATH, COS_PATH} from '../../../config/appConfig';
 Page({
 
@@ -22,12 +23,12 @@ Page({
 		});
 	},
 	onShowSoluteStyle () {
-		this.setData({
+    this.setData({
 			dialogShow: true,
 			link: 'https://lbs.qq.com/product/miniapp/customized/?adtag=wx.slzx.gxhdt'
 		});
-	},
-	onShowManageStyle () {
+  },
+  onShowManageStyle () {
 		this.setData({
 			dialogShow: true,
 			link: 'https://lbs.qq.com/dev/console/custom/mapStyle?adtag=wx.slzx.gxhdt'

@@ -1,3 +1,4 @@
+// pages/map/marker/marker.js
 import {CDN_PATH} from '../../../config/appConfig';
 const RADIUS = 4;
 const INIT_MARKER = {
@@ -155,7 +156,7 @@ Page({
 				latitude: 40.040415,
 				longitude: 116.273511
 			}
-		});
+			});
 	},
 	onChangeShowCallout (event) {
 		const {value} = event.detail;
@@ -340,10 +341,10 @@ Page({
 			calloutPaddingIndex: 0,
 			showRadius: true,
 			scale: 15,
-			location: {
-				latitude: 40.040415,
-				longitude: 116.273511
-			}
+		location: {
+			latitude: 40.040415,
+			longitude: 116.273511
+		}
 		});
 	},
 	onShareAppMessage: function () {
