@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "map-toast": "../../../components/toast/toast"
+  },
+  "navigationBarTitleText": "司乘同显"
+}

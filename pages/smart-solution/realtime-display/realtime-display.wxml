@@ -1,0 +1,24 @@
+<!--pages/mapApi/move-along/move-along.wxml-->
+<view class="nearby-car-container smart-solution">
+	<map
+    id="map-container" 
+    latitude="{{location.latitude}}"
+    longitude="{{location.longitude}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+  >
+  </map>
+  <map-toast id="customize-toast"></map-toast>
+  <button class="primary-btn-style master mt24" bindtap="onRunApi" >
+    执行
+  </button>
+  <button class="primary-btn-style sub" bindtap="changeDriverView" >
+    司机视角
+  </button>
+  <button class="primary-btn-style sub" bindtap="changePassengerView" data-index="0">
+    乘客1视角
+  </button>
+  <button class="primary-btn-style sub" bindtap="changePassengerView"  data-index="1">
+    乘客2视角
+  </button>
+</view>

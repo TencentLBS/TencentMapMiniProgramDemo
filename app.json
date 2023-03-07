@@ -28,7 +28,8 @@
     "pages/smart-solution/location-search/location-search",
     "pages/smart-solution/suggest/suggest",
     "pages/smart-solution/move-along/move-along",
-    "pages/plugin/city-select/city-select"
+    "pages/plugin/city-select/city-select",
+		"pages/smart-solution/realtime-display/realtime-display"
   ],
   "permission": {
     "scope.userLocation": {

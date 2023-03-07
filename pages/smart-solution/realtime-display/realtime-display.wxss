@@ -1,0 +1,49 @@
+/* pages/smart-solution/move-along/move-along.wxss */
+.is-disabled {
+    background: rgba(17, 17, 17, 0.1);
+    color: rgba(34, 34, 34, 0.3)
+}
+.nearby-car-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-bottom: 36px;
+}
+#map-container {
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+
+.mt24 {
+    margin-top: 24px !important;
+}
+
+.primary-btn-style {
+    padding: 0px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 46px;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 16px;
+    border-radius: 4px;
+    background: #3875FF;
+    height: 46px;
+    width: 198px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.master:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), #3875FF;
+}
+.sub:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #E4EDFF !important;
+}
+.primary-btn-style.sub {
+    background: #E4EDFF;
+    color: #3875FF;
+}

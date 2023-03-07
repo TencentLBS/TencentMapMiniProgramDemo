@@ -112,6 +112,9 @@ Page({
 					name: '地点检索',
 					url: '../smart-solution/location-search/location-search'
 				},{
+					name: '司乘同显-拼车',
+					url: '../smart-solution/realtime-display/realtime-display'
+				},{
 					name: '司乘同显-乘客端',
 					url: '../smart-solution/move-along/move-along'
 				}]
