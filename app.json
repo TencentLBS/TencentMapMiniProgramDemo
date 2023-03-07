@@ -38,19 +38,19 @@
   },
   "plugins": {
     "routePlan": {
-      "version": "1.0.13",
+      "version": "1.0.19",
       "provider": "wx50b5593e81dd937a"
     },
     "chooseLocation": {
-      "version": "1.0.6",
+      "version": "1.0.10",
       "provider": "wx76a9a06e5b4e693e"
     },
     "subway": {
-      "version": "1.0.10",
+      "version": "1.0.13",
       "provider": "wx6aaf93c4435fa1c1"
     },
     "citySelector": {
-      "version": "1.0.0",
+      "version": "1.0.2",
       "provider": "wx63ffb7b7894e99ae"
     }
   },

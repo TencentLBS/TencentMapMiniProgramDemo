@@ -1,0 +1,29 @@
+/* pages/components/tab/tab.wxss */
+.toast {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 14px 24px;
+	position: absolute;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 4px;
+	font-family: 'PingFang SC';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	color: #FFFFFF;
+}
+
+.toast image {
+	width: 24px;
+	min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    margin-right: 8px;
+}

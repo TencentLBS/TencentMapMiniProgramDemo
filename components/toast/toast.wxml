@@ -1,0 +1,6 @@
+<!--pages/components/tab/tab.wxml-->
+
+<view class='toast' style="display: {{isShow ? 'flex' : 'none'}};">
+    <image mode="scaleToFill" src="{{iconPath}}"></image>
+    <text>{{content}}</text>
+</view>
