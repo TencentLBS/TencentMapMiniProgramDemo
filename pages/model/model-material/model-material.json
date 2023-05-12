@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+          "mp-dialog": "../../../components/dialog/dialog",
+          "copy-dialog": "../../../components/copy-dialog/copy-dialog",
+          "tab": "../../../components/tab/tab"
+      },
+    "navigationBarTitleText": "显示效果调整"
+  }

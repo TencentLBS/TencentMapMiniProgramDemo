@@ -1,0 +1,62 @@
+<view class="map-view-container">
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            三维模型支持点击交互操作，当模型被点击后，开发者会收到点击回调，其包含layerID，点击位置对应的地图经纬度以及对应的mesh name字段。
+            可以用来区分点击到哪个模型以及具体的mesh上，以便集成业务逻辑，实现与模型交互的体验。
+        </view>
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" enableAutoMaxOverlooking="{{true}}" bindtap="modelLayerReset">
+            </map>
+        </view>
+        <view class="feature-container pl20">
+            <view class="feature-content border-bottom">
+                <text class="feature-label">模型点击交互</text>
+                <view class="feature-txt">
+                    <switch color="#3875FF" disabled="{{loading}}" checked="{{clickable}}" bindchange="switchModelClick" style="margin-right: -4px"></switch>
+                </view>
+            </view>
+            <view class="feature-content border-bottom">
+                <text class="feature-label">模型layerID</text>
+                <view class="feature-txt">
+                    <text wx:if="{{!modelInfo.id}}" class="text disabled-text">点击模型查看信息</text>
+                    <text wx:else class="text">{{modelInfo.id}}</text>
+                </view>
+            </view>
+            <view class="feature-content border-bottom">
+                <text class="feature-label">地图经纬度</text>
+                <view class="feature-txt">
+                    <text wx:if="{{!modelInfo.position.latitude}}" class="text disabled-text">点击模型查看信息</text>
+                    <text wx:else class="text">{{modelInfo.position.latitude}},{{modelInfo.position.longitude}}</text>
+                </view>
+            </view>
+            <view class="feature-content">
+                <text class="feature-label">Mesh名称</text>
+                <view class="feature-txt">
+                    <text wx:if="{{!modelInfo.name}}" class="text disabled-text">点击模型查看信息</text>
+                    <text wx:else class="text">{{modelInfo.name}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="copyright-text">
+        Copyright:
+        <text class="copyright-link-text" data-url="https://sketchfab.com/3d-models/new-york-buildings-e7922fe0f7b14ed786f84529f9217dac" bindtap="onShowDoc">
+            New York Buildings
+        </text>
+        by
+        <text class="copyright-link-text" data-url="https://sketchfab.com/sumitmangela" bindtap="onShowDoc">
+            sumitmangela
+        </text>
+        is licensed under
+        <text class="copyright-link-text" data-url="http://creativecommons.org/licenses/by/4.0/" bindtap="onShowDoc">
+            Creative Commons Attribution
+        </text>
+
+    </view>
+    <view class="bottom-container">
+        <button class="primary-btn-style"  bindtap="resetModel">
+            重置
+        </button>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

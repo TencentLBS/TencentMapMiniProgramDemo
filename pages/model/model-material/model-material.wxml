@@ -1,0 +1,55 @@
+<view class="map-view-container">
+    <!-- 导航栏组件 -->
+    <tab tabList="{{tabList}}" bind:clickTab="clickTab" />
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            <view wx:if="{{tabList[0].show}}">
+                三维模型支持调整曝光度，默认值为1，值越大，模型越亮。
+            </view>
+            <view wx:if="{{tabList[1].show}}">
+                三维模型支持gltf KHR_materials_variants 扩展，皮肤材质需提前制作在gltf模型中，通过更新不同的材质索引来达到模型换肤的效果。
+            </view>
+        </view>
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" enableAutoMaxOverlooking="{{true}}">
+            </map>
+        </view>
+        <view class="feature-container pl20 {{tabList[0].show ? 'feature-content-show' : '' }}" style="padding-bottom: 12px;">
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">曝光度</text>
+                <view class="feature-txt" style="color: #222">
+                    {{exposure}}.0
+                </view>
+            </view>
+            <view>
+                <slider class="slider" disabled="{{loading}}" value="{{exposure}}" step="1" bindchange="onChangeModelExposure" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="5" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0.0</text>
+                    <text>5.0</text>
+                </view>
+            </view>
+        </view>
+        <view class="feature-container pl20 {{tabList[1].show ? 'feature-content-show' : '' }}">
+            <view class="feature-content">
+                <text class="feature-label">皮肤</text>
+                <view class="feature-txt">
+                    <view class="feature-txt-item {{materialType === 'Street' ? 'active' : ''}}" data-type="0" data-name="Street" bindtap="onChangeMaterialType">Street</view>
+                    <view class="feature-txt-item {{materialType === 'Beach' ? 'active' : ''}}" data-type="1" data-name="Beach"  bindtap="onChangeMaterialType">Beach</view>
+                    <view class="feature-txt-item {{materialType === 'Midnight' ? 'active' : ''}}" data-type="2" data-name="Midnight"  bindtap="onChangeMaterialType">Midnight</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view  wx:if="{{ tabList[1].show }}" class="copyright-text">
+        <text>Copyright 2020 Shopify, Inc.\nCC BY 4.0</text>
+        <text class="copyright-link-text" data-url="https://creativecommons.org/licenses/by/4.0/" bindtap="onShowDoc">
+            https://creativecommons.org/licenses/by/4.0/
+        </text>
+    </view>
+    <view wx:if="{{ tabList[0].show }}" class="bottom-container">
+        <button class="primary-btn-style" bindtap="resetModelExposure">
+            重置
+        </button>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

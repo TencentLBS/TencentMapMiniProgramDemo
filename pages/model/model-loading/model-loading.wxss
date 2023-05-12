@@ -1,0 +1,81 @@
+.map-view-container {
+	box-sizing: border-box;
+	background: #F8F8F7;
+	width: 100%;
+}
+
+.map-view-content {
+	background: #FFF;
+	padding: 20px 0 20px;
+	margin-top: 10px;
+	height: 100%;
+}
+
+.map-container {
+	display: flex;
+	justify-content: center;
+}
+
+.map {
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+
+.active {
+	color: #222;
+	font-weight: 500;
+}
+
+.choose-location-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    margin-right: 20px;
+    margin-bottom: -20px;
+}
+.address-box {
+    display: flex;
+    align-items: center;
+}
+.address-text {
+    font-size: 14px;
+    color: #222222;
+    max-width: 186px;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.feature-container {
+	display: none;
+}
+
+.feature-content-show {
+	display: block;
+}
+
+.bottom-container {
+    margin-top: 30px;
+	padding-bottom: 60px;
+}
+
+.primary-btn-style {
+	padding: 0px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 46px;
+	cursor: pointer;
+	color: #FFF;
+	font-size: 16px;
+	border-radius: 4px;
+	background: #3875FF;
+	height: 46px;
+	width: 198px;
+	font-weight: 500;
+}
+
+.slider {
+    margin-left: 0px
+}

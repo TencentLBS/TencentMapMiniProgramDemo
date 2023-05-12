@@ -1,0 +1,15 @@
+<!--pages/map-view/map-view.wxml-->
+<view class="map-view-container">
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+            <view class="introduce-regular">三维模型图层用来在地图上展示三维模型渲染，提供PBR光照，骨骼动画，模型移动动画以及GPU 纹理压缩等能力。常用于景区，园区，校园等真实酷炫效果场景中。</view>
+        </view>
+
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" enableAutoMaxOverlooking="{{true}}">
+            </map>
+        </view>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/map-view/map-view.wxml-->
+<view class="map-view-container">
+  <view class="map-view-content">
+    <view class="introduce plr20">
+      <view class="introduce-regular">MapContext.addVisualLayer(Object object)</view>
+      <view class="introduce-regular">基础库 2.20.1 开始支持，低版本需做<text class="link-txt" bindtap="onShowCompatibility">兼容处理</text></view>
+      <view class="introduce-regular">参数详情请浏览<text class="link-txt" bindtap="onShowDoc">微信官方文档</text></view>
+      <view class="introduce-regular">{{introduce}}</view>
+    </view>
+    
+    <view class="map-container plr20">
+			<map
+				class="map"
+        id="map"
+				latitude="{{location.latitude}}"
+				longitude="{{location.longitude}}"
+				scale="{{scale}}"
+        skew="{{skew}}"
+        rotate="{{rotate}}"
+				enableRotate
+				enable-overlooking
+				enable-3D
+        subkey="{{MOYUAN_KEY}}"
+			>
+      </map>
+    </view>
+    <view class="feature-container pl20">
+      <view class="feature-content">
+        <text class="feature-label">图层类型</text>
+        <view class="feature-txt">
+          <view class="feature-txt-item {{type === 'arc' ? 'active' : ''}}" data-type="arc" bindtap="onChangeLayerType">弧线图</view>
+          <view class="feature-txt-item {{type === 'heat' ? 'active' : ''}}" data-type="heat" bindtap="onChangeLayerType">标准热力图</view>
+          <view class="feature-txt-item {{type === 'grid' ? 'active' : ''}}" data-type="grid" bindtap="onChangeLayerType">网格热力图</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

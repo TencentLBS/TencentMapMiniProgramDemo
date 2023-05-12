@@ -12,16 +12,22 @@
 				<view id="{{item.id}}" class="list-content {{item.open ? 'list-content-show' : ''}}" bindtap="onListToggle">
 					<image class="list-img" src="{{item.img}}"></image>
 					<view class="list-border">
-						<text class="list-txt">{{item.name}}</text>
-						<image src="{{item.pages.length ? (item.open ? imgs.upArrow : imgs.downArrow) : imgs.rightArrow}}" class="list-icon" style="width:16px;height:16px;"></image>
+                        <view class="list-title">
+                            <text class="list-txt">{{item.name}}</text>
+                            <image wx:if="{{item.newTag}}" src="{{numTagUrl}}" class="list-new-tag"></image>
+                        </view>
+                        <view>
+                            <image src="{{item.pages.length ? (item.open ? imgs.upArrow : imgs.downArrow) : imgs.rightArrow}}" class="list-icon arrow"></image>
+                        </view>
 					</view>
 				</view>
 				<view class="list-item-content {{item.open ? 'list-item-content-show' : ''}}">
 					<view class="list-item {{item.open ? 'list-item-show' : ''}}">
-						<view class="list-item-cells" wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+						<view class="list-item-cells" wx:for="{{item.pages}}" wx:for-item="page" wx:key="name">
 							<navigator url="{{page.url}}" class="list-nav">
 								<text class="list-item-cells-txt">{{page.name}}</text>
-							</navigator>
+                                <image wx:if="{{page.newTag}}" src="{{itemNewTagUrl}}" class="list-new-tag list-item-new-tag"></image>
+                            </navigator>
 						</view>
 					</view>
 				</view>

@@ -8,12 +8,15 @@ Page({
 			upArrow: `${CDN_PATH}/iconArrowUp@3x.png`,
 			rightArrow: `${CDN_PATH}/iconArrowRight@3x.png`,
 		},
+		numTagUrl: `${COS_PATH}/new.png`,
+		itemNewTagUrl: `${COS_PATH}/new1.png`,
+		newTagUrl: `${COS_PATH}/new-flag.png`,
 		menuList: [
 			{
 				id: 'map',
 				name: 'Map 组件',
 				open: false,
-        img: `${CDN_PATH}/iconMapmodule@3x.png?cache=0`,
+				img: `${CDN_PATH}/iconMapmodule@3x.png?cache=0`,
 				pages: [{
 					name: '地图显示',
 					url: '../map/show/show',
@@ -38,7 +41,7 @@ Page({
 				id: 'mapApi',
 				name: 'Map API',
 				open: false,
-        img: `${COS_PATH}/iconMapapi@3x.png?cache=0`,
+				img: `${COS_PATH}/iconMapapi@3x.png?cache=0`,
 				pages: [{
 					name: 'includePoints',
 					url: '../mapApi/include-points/include-points'
@@ -61,7 +64,7 @@ Page({
 				id: 'plugin',
 				name: '小程序插件',
 				open: false,
-        img: `${CDN_PATH}/iconMiniprogram@3x.png?cache=0`,
+				img: `${CDN_PATH}/iconMiniprogram@3x.png?cache=0`,
 				pages: [{
 					name: '路线规划插件',
 					url: '../plugin/route-plan/route-plan'
@@ -81,14 +84,54 @@ Page({
 				name: '个性化地图',
 				open: false,
 				url: '../customized/customized-index/customized-index',
-        img: `${CDN_PATH}/iconMap@3x.png?cache=0`,
+				img: `${CDN_PATH}/iconMap@3x.png?cache=0`,
 				pages: []
+			},
+			{
+				id: 'dataLayer',
+				name: '数据图层',
+				open: false,
+				newTag: true,
+				img: `${COS_PATH}/data-layer.png`,
+				//numIcon
+				pages: [
+					{
+						name: '可视化图层',
+						newTag: false,
+						url: '../mapApi/add-visual-layer/add-visual-layer'
+					},
+					{
+						name: '模型摆放',
+						newTag: true,
+						url: '../model/model-loading/model-loading',
+					},
+					{
+						name: '骨骼动画',
+						newTag: true,
+						url: '../model/model-skeletal-animation/model-skeletal-animation'
+					},
+					{
+						name: '模型交互',
+						newTag: true,
+						url: '../model/model-mesh/model-mesh'
+					},
+					{
+						name: '路径平移动画',
+						newTag: true,
+						url: '../model/model-move/model-move'
+					},
+					{
+						name: '显示效果调整',
+						newTag: true,
+						url: '../model/model-material/model-material'
+					},
+				]
 			},
 			{
 				id: 'webservice',
 				name: '接口能力',
 				open: false,
-        img: `${CDN_PATH}/iconPort@3x.png?cache=0`,
+				img: `${CDN_PATH}/iconPort@3x.png?cache=0`,
 				pages: [{
 					name: '逆地址解析',
 					url: '../webservice/reverseGeocoder-form/reverseGeocoder-form'
@@ -99,9 +142,9 @@ Page({
 			},
 			{
 				id: 'smartSolution',
-				name: '出行解决方案',
+				name: '出行服务接口',
 				open: false,
-        img: `${COS_PATH}/index_smartSolution@2x.png?cache=0`,
+				img: `${COS_PATH}/index_smartSolution@2x.png?cache=0`,
 				pages: [{
 					name: '周边车辆',
 					url: '../smart-solution/nearby-car/nearby-car'
@@ -111,13 +154,15 @@ Page({
 				},{
 					name: '地点检索',
 					url: '../smart-solution/location-search/location-search'
-				},{
+				},
+				{
 					name: '司乘同显-拼车',
 					url: '../smart-solution/realtime-display/realtime-display'
 				},{
 					name: '司乘同显-乘客端',
 					url: '../smart-solution/move-along/move-along'
-				}]
+				}
+				]
 			}
 		],
 		dialogShow: false,

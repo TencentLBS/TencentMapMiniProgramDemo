@@ -69,9 +69,25 @@ const uuid = () => {
   const uuid = s.join('');
   return uuid;
 };
+
+const checkLatLng = (latlng) => {
+    if (!latlng.latitude || !latlng.longitude) {
+      return false;
+    }
+    if (latlng.latitude >= 90 || latlng.latitude <= -90 || latlng.longitude >= 180 || latlng.longitude <= -180) {
+      return false;
+    }
+    return true;
+  }
+const numberToFixed = (num, length = 6) => {
+    const n = 10 ** length;
+    return Math.floor(num * n) / n;
+}
 module.exports = {
 	formatTime: formatTime,
   wxPromisify: wxPromisify,
   compareVersion: compareVersion,
-  uuid: uuid
+  uuid: uuid,
+  checkLatLng: checkLatLng,
+  numberToFixed
 };

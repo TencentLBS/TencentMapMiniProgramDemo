@@ -1,0 +1,31 @@
+<view class="map-view-container">
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            三维模型具备在地图上执行平移动画的能力，通过指定一组路径点串与动画时间长度(单位秒)即可。若开启自动旋转参数，可实时更新模型角度，使其正面始终朝向路线的方向。
+        </view>
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" polyline="{{polylineData}}" markers="{{markers}}" enableAutoMaxOverlooking="{{true}}">
+            </map>
+        </view>
+        <view class="feature-container pl20">
+            <view class="feature-content border-bottom">
+                <text class="feature-label">动画时长 (秒)</text>
+                <view class="feature-txt">
+                    <input class="keyword-input" value="{{ duration }}" placeholder="输入动画时长" bindinput="onDurationChange" type="number"/>
+                </view>
+            </view>
+            <view class="feature-content">
+                <text class="feature-label">自动旋转</text>
+                <view class="feature-txt">
+                    <switch color="#3875FF" disabled="{{false}}" checked="{{autoRotate}}" bindchange="setModelAnimationAutoRotate" style="margin-right: -4px"></switch>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-container">
+        <button class="primary-btn-style {{runBtnDisabled ? 'is-disabled' : ''}}" bindtap="runModel">
+            执行
+        </button>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

@@ -1,0 +1,99 @@
+<view class="map-view-container">
+    <!-- 导航栏组件 -->
+    <tab tabList="{{tabList}}" bind:clickTab="clickTab" />
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            <view wx:if="{{tabList[0].show}}">腾讯位置服务推出在地图上加载三维模型(gltf)的能力，开发者在
+                <text class="link-txt" bindtap="onShowDoc">腾讯位置服务开放平台</text>控制台-数据图层-图层编辑-3D模型 上传自己的三维模型，生成一个layerID，
+                在小程序端调用 MapContext.addVisualLayer(), 即可加载到小程序上。
+            </view>
+            <view wx:if="{{tabList[1].show}}">
+                更新三维模型在地图上的摆放的地理位置，设置经纬度改变模型位置。
+            </view>
+            <view wx:if="{{tabList[2].show}}">
+                更新三维模型的旋转角度，呈现模型的不同角度效果。采用右手坐标系，模型是Y朝上，地图是Z朝上。
+            </view>
+            <view wx:if="{{tabList[3].show}}">
+                更新三维模型的缩放比例来调整模型的呈现大小，模型若按照米单位建模，则可直接放置到地图上，否则需要调整缩放比例来适配在地图上的大小。
+            </view>
+        </view>
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" enableAutoMaxOverlooking="{{true}}">
+            </map>
+        </view>
+        <view class="pl20" wx:if="{{tabList[1].show}}">
+            <view class="choose-location-box">
+                <text class="feature-label">模型摆放位置</text>
+                <view class="address-box" bindtap="toLocationPicker">
+                    <text class="address-text">{{addressName}}</text>
+                    <image src="{{images.rightArrow}}" class="right-arrow"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="feature-container pl20   {{tabList[2].show ? 'feature-content-show' : '' }}">
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">模型缩放倍数</text>
+                <view class="feature-txt" style="color: #222">
+                    {{modelScale}}
+                </view>
+            </view>
+            <view>
+                <slider class="slider" value="{{modelScale}}" step="0.1" bindchange="onChangeModelScale" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0.5" max="2" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0.5</text>
+                    <text>2.0</text>
+                </view>
+            </view>
+        </view>
+        <view class="feature-container pl20   {{tabList[3].show ? 'feature-content-show' : '' }}">
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">模型rotateX</text>
+                <view class="feature-txt" style="color: #222">
+                    {{modelRotation.x}}°
+                </view>
+            </view>
+            <view class="border-bottom" style="padding-bottom: 18px;">
+                <slider class="slider" value="{{modelRotation.x}}" step="1" bindchange="onChangeModelRotation" data-type="x" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="180" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0°</text>
+                    <text>180°</text>
+                </view>
+            </view>
+
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">模型rotateY</text>
+                <view class="feature-txt" style="color: #222">
+                    {{modelRotation.y}}°
+                </view>
+            </view>
+            <view class="border-bottom" style="padding-bottom: 18px;">
+                <slider class="slider" value="{{modelRotation.y}}" step="1" bindchange="onChangeModelRotation" data-type="y" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="180" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0°</text>
+                    <text>180°</text>
+                </view>
+            </view>
+
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">模型rotateZ</text>
+                <view class="feature-txt" style="color: #222">
+                    {{modelRotation.z}}°
+                </view>
+            </view>
+            <view>
+                <slider class="slider" value="{{modelRotation.z}}" step="1" bindchange="onChangeModelRotation"  data-type="z" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0" max="180" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0°</text>
+                    <text>180°</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{ !tabList[0].show }}" class="bottom-container">
+        <button class="primary-btn-style"  bindtap="resetModel">
+            重置
+        </button>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

@@ -4,7 +4,7 @@
   <tab tabList="{{tabList}}" bind:clickTab="clickTab"/>
   <!-- 地图展示部分 -->
   <view class="map-container">
-    <view class="introduce plr20">此示例展示地图显示效果，包含基础地图、室内地图、海外地图、卫星地图产品，同时提供 3D 楼快、实时路况功能。</view>
+    <view class="introduce plr20">此示例展示地图显示效果，包含基础地图、室内地图、海外地图、卫星地图产品，同时提供 3D 楼块、实时路况功能。</view>
     <view class="map-content pl20 {{tabList[0].show ? 'map-content-show' : '' }}">
 			<view class="pr20">
 				<map class="map" latitude="40.040415" enable-overlooking="{{true}}" longitude="116.273511" scale="17" enable-3D="{{is3D}}" enable-traffic="{{isRealTraffic}}" enable-poi="{{isShowPoi}}" enable-rotate></map>

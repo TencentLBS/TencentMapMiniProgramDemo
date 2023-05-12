@@ -18,11 +18,11 @@ Page({
       longitude: 116.274968,
       width: 16,
       height: 20,
+      iconPath: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/car.png',
       anchor: {
         x: 0.5,
         y: 0.5
       },
-      iconPath: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/car.png',
     }],
     polyline: [{
       points: [{"latitude":40.040129,"longitude":116.274968},{"latitude":40.038974,"longitude":116.275214},{"latitude":40.038974,"longitude":116.275214},{"latitude":40.038565000000006,"longitude":116.272683},{"latitude":40.03848200000001,"longitude":116.27209500000001},{"latitude":40.03836100000001,"longitude":116.27074},{"latitude":40.03832700000001,"longitude":116.270515},{"latitude":40.03807400000001,"longitude":116.268038},{"latitude":40.03801400000001,"longitude":116.26763600000001},{"latitude":40.03801400000001,"longitude":116.26763600000001},{"latitude":40.03790800000001,"longitude":116.267508},{"latitude":40.03450300000001,"longitude":116.270961},{"latitude":40.03419900000001,"longitude":116.271221},{"latitude":40.03396500000001,"longitude":116.271401},{"latitude":40.03245000000001,"longitude":116.272472}],
@@ -78,7 +78,13 @@ Page({
       markerId: 1,
       path: this.data.polyline[0].points,
       duration: 10000,
-      autoRotate: true
+      autoRotate: true,
+      fail: (err) => {
+        console.error(err)
+      },
+      success: (res) => {
+        console.log(res)
+      }
     })
 
   },

@@ -1,0 +1,28 @@
+/* pages/map-view/map-view.wxss */
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+  height: 100vh;
+}
+.map-view-content {
+  background: #FFF;
+  padding:20px 0 0;
+  margin-top: 10px;
+  height: 100%;
+}
+.map-container {
+  height: calc(100% - 175px);
+}
+.map {
+  width:100%;
+  height: 100%;
+  position: relative;
+}
+.active {
+	color: #222;
+	font-weight: 500;
+}

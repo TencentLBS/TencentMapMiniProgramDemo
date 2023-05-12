@@ -1,0 +1,47 @@
+<view class="map-view-container">
+    <view class="map-view-content">
+        <view class="introduce plr20">
+            三维模型支持播放骨骼动画的能力，骨骼动画是提前制作在gltf模型中，可以根据动画索引来播放不同的动画效果。动画时间也是内置在模型中，通过调整速率来改变动画时长。
+        </view>
+        <view class="map-container plr20">
+            <map class="map" id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" skew="{{skew}}" rotate="{{rotate}}" enableRotate enable-overlooking enable-3D subkey="{{MOYUAN_KEY}}" enableAutoMaxOverlooking="{{true}}">
+            </map>
+        </view>
+        <view class="feature-container pl20   {{tabList[1].show ? 'feature-content-show' : '' }}">
+            <view class="feature-content border-bottom">
+                <text class="feature-label">动画索引</text>
+                <view class="feature-txt">
+                    <view class="feature-txt-item {{animationType === '0' ? 'active' : ''}}" data-type="0" data-name="Street" bindtap="setSkeletonAnimation">走路动画</view>
+                    <view class="feature-txt-item {{animationType === '1' ? 'active' : ''}}" data-type="1" data-name="Beach" bindtap="setSkeletonAnimation">回头动画</view>
+                </view>
+            </view>
+        </view>
+        <view class="feature-container pl20">
+            <view class="feature-content" style="height: inherit;line-height: inherit;margin-top: 18px;">
+                <text class="feature-label">动画速率</text>
+                <view class="feature-txt" style="color: #222">
+                    {{speed}}
+                </view>
+            </view>
+            <view class="border-bottom" style="padding-bottom: 12px;">
+                <slider class="slider" disabled="{{loading}}" value="{{speed}}" step="0.1" bindchange="onChangeModelSpeed" color="#e5e5e5" activeColor="#3875ff" block-size="20" min="0.5" max="5" style="margin-left: 0px;" />
+                <view class="feature-content rotate-range" style="height: inherit;line-height: inherit;color: #222;opacity: 0.5;font-size: 12px;">
+                    <text>0.1倍</text>
+                    <text>5倍</text>
+                </view>
+            </view>
+        </view>
+        <view class="feature-content pl20">
+            <text class="feature-label">动画循环</text>
+            <view class="feature-txt">
+                <switch color="#3875FF" disabled="{{loading}}" checked="{{repeat}}" bindchange="setModelAnimationRepeat"></switch>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-container">
+        <button class="primary-btn-style"  bindtap="resetModel">
+            重置
+        </button>
+    </view>
+    <copy-dialog show="{{dialogShow}}" link="{{link}}" bindclose="onDialogClose"></copy-dialog>
+</view>

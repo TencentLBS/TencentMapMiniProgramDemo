@@ -1,0 +1,68 @@
+.map-view-container {
+	box-sizing: border-box;
+	background: #F8F8F7;
+	width: 100%;
+}
+
+.map-view-content {
+	background: #FFF;
+	padding: 20px 0 0px;
+	margin-top: 10px;
+	height: 100%;
+}
+
+.map-container {
+	display: flex;
+	justify-content: center;
+}
+
+.feature-txt .text.disabled-text {
+    opacity: 0.5;
+}
+.feature-txt .text {
+	font-weight: 400;
+	font-size: 14px;
+	color: #222222;
+}
+
+.map {
+    width: 100%;
+    height: 400px;
+	position: relative;
+}
+
+.active {
+	color: #222;
+	font-weight: 500;
+}
+
+.bottom-container {
+    margin-top: 30px;
+	padding-bottom: 60px;
+}
+
+.primary-btn-style {
+	padding: 0px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 46px;
+	cursor: pointer;
+	color: #FFF;
+	font-size: 16px;
+	border-radius: 4px;
+	background: #3875FF;
+	height: 46px;
+	width: 198px;
+	font-weight: 500;
+}
+.copyright-text {
+    margin: 16px 20px;
+    color: rgba(34, 34, 34, 0.35);
+    font-size: 10px;
+    word-break: break-all;
+}
+.copyright-link-text {
+    display: inline-block;
+    text-decoration: underline;
+    line-height: 0;
+}

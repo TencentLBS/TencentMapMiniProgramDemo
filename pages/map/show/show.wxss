@@ -19,6 +19,7 @@
   z-index: 1;
   width: 100%;
   opacity: 0;
+  box-sizing: border-box;
 }
 .map-content-show {
   height: auto;
