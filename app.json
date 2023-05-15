@@ -1,69 +1,76 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/customized/customized-index/customized-index",
-    "pages/map/show/show",
-    "pages/map/view/view",
-    "pages/map/control/control",
-    "pages/map/event/event",
-    "pages/plugin/route-plan/route-plan",
-    "pages/map/marker/marker",
-    "pages/plugin/document/document",
-    "pages/plugin/subway/subway",
-    "pages/plugin/location-picker/location-picker",
-    "pages/customized/customized-map/customized-map",
-    "pages/map/overlay/overlay",
-    "pages/webservice/search-form/search-form",
-    "pages/webservice/search-result/search-result",
-    "pages/webservice/reverseGeocoder-form/reverseGeocoder-form",
-    "pages/webservice/reverseGeocoder-result/reverseGeocoder-result",
-    "pages/webservice/policy-list/policy-list",
-    "pages/mapApi/include-points/include-points",
-    "pages/mapApi/move-along/move-along",
-    "pages/mapApi/translate-marker/translate-marker",
-    "pages/mapApi/open-map-app/open-map-app",
-    "pages/mapApi/init-marker-cluster/init-marker-cluster",
-    "pages/smart-solution/nearby-car/nearby-car",
-    "pages/smart-solution/recommend-station/recommend-station",
-    "pages/smart-solution/location-search/location-search",
-    "pages/smart-solution/suggest/suggest",
-    "pages/smart-solution/move-along/move-along",
-    "pages/plugin/city-select/city-select",
-		"pages/smart-solution/realtime-display/realtime-display"
-  ],
-  "permission": {
-    "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序定位"
-    }
-  },
-  "plugins": {
-    "routePlan": {
-      "version": "1.0.19",
-      "provider": "wx50b5593e81dd937a"
+    "pages": [
+        "pages/index/index",
+        "pages/customized/customized-index/customized-index",
+        "pages/map/show/show",
+        "pages/map/view/view",
+        "pages/map/control/control",
+        "pages/map/event/event",
+        "pages/plugin/route-plan/route-plan",
+        "pages/map/marker/marker",
+        "pages/plugin/document/document",
+        "pages/plugin/subway/subway",
+        "pages/plugin/location-picker/location-picker",
+        "pages/customized/customized-map/customized-map",
+        "pages/map/overlay/overlay",
+        "pages/webservice/search-form/search-form",
+        "pages/webservice/search-result/search-result",
+        "pages/webservice/reverseGeocoder-form/reverseGeocoder-form",
+        "pages/webservice/reverseGeocoder-result/reverseGeocoder-result",
+        "pages/webservice/policy-list/policy-list",
+        "pages/mapApi/include-points/include-points",
+        "pages/mapApi/move-along/move-along",
+        "pages/mapApi/translate-marker/translate-marker",
+        "pages/mapApi/model-layer/model-layer",
+        "pages/mapApi/open-map-app/open-map-app",
+        "pages/mapApi/init-marker-cluster/init-marker-cluster",
+        "pages/smart-solution/nearby-car/nearby-car",
+        "pages/smart-solution/recommend-station/recommend-station",
+        "pages/smart-solution/location-search/location-search",
+        "pages/smart-solution/suggest/suggest",
+        "pages/smart-solution/move-along/move-along",
+        "pages/smart-solution/realtime-display/realtime-display",
+        "pages/plugin/city-select/city-select",
+        "pages/mapApi/add-visual-layer/add-visual-layer",
+        "pages/model/model-loading/model-loading",
+        "pages/model/model-skeletal-animation/model-skeletal-animation",
+        "pages/model/model-mesh/model-mesh",
+        "pages/model/model-material/model-material",
+        "pages/model/model-move/model-move"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序定位"
+        }
     },
-    "chooseLocation": {
-      "version": "1.0.10",
-      "provider": "wx76a9a06e5b4e693e"
+    "plugins": {
+        "routePlan": {
+            "version": "1.0.19",
+            "provider": "wx50b5593e81dd937a"
+        },
+        "chooseLocation": {
+            "version": "1.0.10",
+            "provider": "wx76a9a06e5b4e693e"
+        },
+        "subway": {
+            "version": "1.0.13",
+            "provider": "wx6aaf93c4435fa1c1"
+        },
+        "citySelector": {
+            "version": "1.0.2",
+            "provider": "wx63ffb7b7894e99ae"
+        }
     },
-    "subway": {
-      "version": "1.0.13",
-      "provider": "wx6aaf93c4435fa1c1"
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
     },
-    "citySelector": {
-      "version": "1.0.2",
-      "provider": "wx63ffb7b7894e99ae"
-    }
-  },
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "useExtendedLib": {
-    "weui": true
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "servicemarket": true
+    "useExtendedLib": {
+        "weui": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "servicemarket": true
 }
